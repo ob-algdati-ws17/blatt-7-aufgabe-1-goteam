@@ -3,5 +3,5 @@ project(blatt_7_aufgabe_1_goteam)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES avltree/AVLTree.cpp avltree/AVLTree.h)
-add_library(blatt_7_aufgabe_1_goteam ${SOURCE_FILES})
+set(SOURCE_FILES main.cpp)
+add_executable(blatt_7_aufgabe_1_goteam ${SOURCE_FILES})

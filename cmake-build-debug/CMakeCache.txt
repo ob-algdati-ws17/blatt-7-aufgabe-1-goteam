@@ -190,9 +190,6 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Value Computed by CMake
 blatt_7_aufgabe_1_goteam_BINARY_DIR:STATIC=C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug
 
-//Dependencies for target
-blatt_7_aufgabe_1_goteam_LIB_DEPENDS:STATIC=
-
 //Value Computed by CMake
 blatt_7_aufgabe_1_goteam_SOURCE_DIR:STATIC=C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam
 

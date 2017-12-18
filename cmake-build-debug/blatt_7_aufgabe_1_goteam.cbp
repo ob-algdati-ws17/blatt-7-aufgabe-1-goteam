@@ -28,10 +28,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="blatt_7_aufgabe_1_goteam">
-				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug/libblatt_7_aufgabe_1_goteam.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug/blatt_7_aufgabe_1_goteam.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="2"/>
+				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/4.9.2/include/c++"/>
@@ -49,10 +49,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="blatt_7_aufgabe_1_goteam/fast">
-				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug/libblatt_7_aufgabe_1_goteam.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug/blatt_7_aufgabe_1_goteam.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="2"/>
+				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/4.9.2/include/c++"/>
@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/main.cpp">
+			<Option target="blatt_7_aufgabe_1_goteam"/>
+		</Unit>
 		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -122,6 +122,33 @@ blatt_7_aufgabe_1_goteam/fast:
 	$(MAKE) -f CMakeFiles\blatt_7_aufgabe_1_goteam.dir\build.make CMakeFiles/blatt_7_aufgabe_1_goteam.dir/build
 .PHONY : blatt_7_aufgabe_1_goteam/fast
 
+main.obj: main.cpp.obj
+
+.PHONY : main.obj
+
+# target to build an object file
+main.cpp.obj:
+	$(MAKE) -f CMakeFiles\blatt_7_aufgabe_1_goteam.dir\build.make CMakeFiles/blatt_7_aufgabe_1_goteam.dir/main.cpp.obj
+.PHONY : main.cpp.obj
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles\blatt_7_aufgabe_1_goteam.dir\build.make CMakeFiles/blatt_7_aufgabe_1_goteam.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles\blatt_7_aufgabe_1_goteam.dir\build.make CMakeFiles/blatt_7_aufgabe_1_goteam.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -131,6 +158,9 @@ help:
 	@echo ... edit_cache
 	@echo ... blatt_7_aufgabe_1_goteam
 	@echo ... rebuild_cache
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

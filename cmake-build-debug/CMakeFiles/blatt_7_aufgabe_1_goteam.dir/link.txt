@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\JetBrains\CLion 2017.1\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\blatt_7_aufgabe_1_goteam.dir/objects.a
-C:\PROGRA~2\CODEBL~1\MinGW\bin\ar.exe cr CMakeFiles\blatt_7_aufgabe_1_goteam.dir/objects.a @CMakeFiles\blatt_7_aufgabe_1_goteam.dir\objects1.rsp
-C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  -g   -Wl,--whole-archive CMakeFiles\blatt_7_aufgabe_1_goteam.dir/objects.a -Wl,--no-whole-archive  -o blatt_7_aufgabe_1_goteam.exe -Wl,--out-implib,libblatt_7_aufgabe_1_goteam.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\blatt_7_aufgabe_1_goteam.dir\linklibs.rsp

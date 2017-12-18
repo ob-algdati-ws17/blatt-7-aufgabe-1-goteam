@@ -1,3 +1,0 @@
-C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/CMakeFiles/avltree.dir
-C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/CMakeFiles/rebuild_cache.dir

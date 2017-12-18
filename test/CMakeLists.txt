@@ -1,7 +1,18 @@
-cmake_minimum_required(VERSION 3.7)
-project(test)
+file(GLOB SRCS *.cpp)
 
-set(CMAKE_CXX_STANDARD 11)
+if (APPLE)
+    add_definitions(-DGTEST_USE_OWN_TR1_TUPLE)
+    add_definitions(-D__GLIBCXX__)
+endif (APPLE)
 
-set(SOURCE_FILES main.cpp)
-add_executable(test ${SOURCE_FILES})
+add_executable(testAvlTree ${SRCS})
+
+target_link_libraries(testAvlTree
+        avltree
+        gtest
+        gmock
+        )
+
+include_directories("..")
+
+install(TARGETS testAvlTree DESTINATION bin)

@@ -6,7 +6,7 @@
 #include "avltree/AvlTree.h"
 #include "../cmake-build-debug/googletest-src/googletest/include/gtest/gtest.h"
 
-class BinTreeTest : public ::testing::Test {
+class AvlTreeTest : public ::testing::Test {
 };
 
 #endif //ARRAYLIST_TESTLIST_H

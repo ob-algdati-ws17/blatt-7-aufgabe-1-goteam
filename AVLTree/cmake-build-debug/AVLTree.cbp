@@ -2,24 +2,24 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="AVLTree"/>
+		<Option title="avltree"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="AVLTree">
-				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/libAVLTree.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug"/>
+			<Target title="avltree">
+				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/libavltree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -32,15 +32,15 @@
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/4.9.2/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 AVLTree"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 avltree"/>
+					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="AVLTree/fast">
-				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/libAVLTree.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug"/>
+			<Target title="avltree/fast">
+				<Option output="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/libavltree.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -53,40 +53,40 @@
 					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/4.9.2/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 AVLTree/fast"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 avltree/fast"/>
+					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/library.cpp">
-			<Option target="AVLTree"/>
+		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/library.cpp">
+			<Option target="avltree"/>
 		</Unit>
-		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/library.h">
-			<Option target="AVLTree"/>
+		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/library.h">
+			<Option target="avltree"/>
 		</Unit>
-		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/CMakeLists.txt">
+		<Unit filename="C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

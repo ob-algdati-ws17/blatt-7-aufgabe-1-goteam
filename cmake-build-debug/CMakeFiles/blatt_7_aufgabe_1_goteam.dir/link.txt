@@ -1,0 +1,2 @@
+C:\PROGRA~2\CODEBL~1\MinGW\bin\ar.exe qc libblatt_7_aufgabe_1_goteam.a  CMakeFiles/blatt_7_aufgabe_1_goteam.dir/library.cpp.obj CMakeFiles/blatt_7_aufgabe_1_goteam.dir/avltree/AVLTree.cpp.obj
+C:\PROGRA~2\CODEBL~1\MinGW\bin\ranlib.exe libblatt_7_aufgabe_1_goteam.a

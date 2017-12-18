@@ -1,0 +1,15 @@
+"C:\Program Files (x86)\JetBrains\CLion 2017.1\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam"
+-- Configuring done
+CMake Error at CMakeLists.txt:7 (add_library):
+  Cannot find source file:
+
+    avltree/AVLTree.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+CMake Error: Cannot determine link language for target "blatt_7_aufgabe_1_goteam".
+CMake Error: CMake can not determine linker language for target: blatt_7_aufgabe_1_goteam
+-- Generating done
+-- Build files have been written to: C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/cmake-build-debug

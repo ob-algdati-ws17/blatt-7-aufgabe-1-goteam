@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/AVLTree.dir/library.cpp.obj"
-  "libAVLTree.pdb"
-  "libAVLTree.a"
+  "CMakeFiles/avltree.dir/library.cpp.obj"
+  "libavltree.pdb"
+  "libavltree.a"
 )
 
 # Per-language clean rules from dependency scanning.
 foreach(lang CXX)
-  include(CMakeFiles/AVLTree.dir/cmake_clean_${lang}.cmake OPTIONAL)
+  include(CMakeFiles/avltree.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

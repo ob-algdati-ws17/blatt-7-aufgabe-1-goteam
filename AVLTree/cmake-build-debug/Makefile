@@ -47,10 +47,10 @@ RM = "C:\Program Files (x86)\JetBrains\CLion 2017.1\bin\cmake\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree"
+CMAKE_SOURCE_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug\CMakeFiles" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug\CMakeFiles" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named AVLTree
+# Target rules for targets named avltree
 
 # Build rule for target.
-AVLTree: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 AVLTree
-.PHONY : AVLTree
+avltree: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 avltree
+.PHONY : avltree
 
 # fast build rule for target.
-AVLTree/fast:
-	$(MAKE) -f CMakeFiles\AVLTree.dir\build.make CMakeFiles/AVLTree.dir/build
-.PHONY : AVLTree/fast
+avltree/fast:
+	$(MAKE) -f CMakeFiles\avltree.dir\build.make CMakeFiles/avltree.dir/build
+.PHONY : avltree/fast
 
 library.obj: library.cpp.obj
 
@@ -128,7 +128,7 @@ library.obj: library.cpp.obj
 
 # target to build an object file
 library.cpp.obj:
-	$(MAKE) -f CMakeFiles\AVLTree.dir\build.make CMakeFiles/AVLTree.dir/library.cpp.obj
+	$(MAKE) -f CMakeFiles\avltree.dir\build.make CMakeFiles/avltree.dir/library.cpp.obj
 .PHONY : library.cpp.obj
 
 library.i: library.cpp.i
@@ -137,7 +137,7 @@ library.i: library.cpp.i
 
 # target to preprocess a source file
 library.cpp.i:
-	$(MAKE) -f CMakeFiles\AVLTree.dir\build.make CMakeFiles/AVLTree.dir/library.cpp.i
+	$(MAKE) -f CMakeFiles\avltree.dir\build.make CMakeFiles/avltree.dir/library.cpp.i
 .PHONY : library.cpp.i
 
 library.s: library.cpp.s
@@ -146,7 +146,7 @@ library.s: library.cpp.s
 
 # target to generate assembly for a file
 library.cpp.s:
-	$(MAKE) -f CMakeFiles\AVLTree.dir\build.make CMakeFiles/AVLTree.dir/library.cpp.s
+	$(MAKE) -f CMakeFiles\avltree.dir\build.make CMakeFiles/avltree.dir/library.cpp.s
 .PHONY : library.cpp.s
 
 # Help Target
@@ -155,7 +155,7 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... AVLTree
+	@echo ... avltree
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... library.obj

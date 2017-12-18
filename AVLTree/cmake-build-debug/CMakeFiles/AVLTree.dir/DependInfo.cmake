@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/library.cpp" "C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/CMakeFiles/AVLTree.dir/library.cpp.obj"
+  "C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/library.cpp" "C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/CMakeFiles/avltree.dir/library.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

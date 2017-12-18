@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree
+# Install script for directory: C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/AVLTree")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/avltree")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/AVLTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Mario/Documents/02 Master/WS 17-18/01 Algorithmen und Datenstrukturen/Praktikum/blatt-7-aufgabe-1-goteam/avltree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

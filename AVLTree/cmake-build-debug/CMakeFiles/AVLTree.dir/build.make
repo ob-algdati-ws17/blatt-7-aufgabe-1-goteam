@@ -42,72 +42,72 @@ RM = "C:\Program Files (x86)\JetBrains\CLion 2017.1\bin\cmake\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree"
+CMAKE_SOURCE_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug"
 
 # Include any dependencies generated for this target.
-include CMakeFiles/AVLTree.dir/depend.make
+include CMakeFiles/avltree.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/AVLTree.dir/progress.make
+include CMakeFiles/avltree.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/AVLTree.dir/flags.make
+include CMakeFiles/avltree.dir/flags.make
 
-CMakeFiles/AVLTree.dir/library.cpp.obj: CMakeFiles/AVLTree.dir/flags.make
-CMakeFiles/AVLTree.dir/library.cpp.obj: ../library.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AVLTree.dir/library.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AVLTree.dir\library.cpp.obj -c "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\library.cpp"
+CMakeFiles/avltree.dir/library.cpp.obj: CMakeFiles/avltree.dir/flags.make
+CMakeFiles/avltree.dir/library.cpp.obj: ../library.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/avltree.dir/library.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\avltree.dir\library.cpp.obj -c "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\library.cpp"
 
-CMakeFiles/AVLTree.dir/library.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AVLTree.dir/library.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\library.cpp" > CMakeFiles\AVLTree.dir\library.cpp.i
+CMakeFiles/avltree.dir/library.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/avltree.dir/library.cpp.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\library.cpp" > CMakeFiles\avltree.dir\library.cpp.i
 
-CMakeFiles/AVLTree.dir/library.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AVLTree.dir/library.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\library.cpp" -o CMakeFiles\AVLTree.dir\library.cpp.s
+CMakeFiles/avltree.dir/library.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/avltree.dir/library.cpp.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\library.cpp" -o CMakeFiles\avltree.dir\library.cpp.s
 
-CMakeFiles/AVLTree.dir/library.cpp.obj.requires:
+CMakeFiles/avltree.dir/library.cpp.obj.requires:
 
-.PHONY : CMakeFiles/AVLTree.dir/library.cpp.obj.requires
+.PHONY : CMakeFiles/avltree.dir/library.cpp.obj.requires
 
-CMakeFiles/AVLTree.dir/library.cpp.obj.provides: CMakeFiles/AVLTree.dir/library.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\AVLTree.dir\build.make CMakeFiles/AVLTree.dir/library.cpp.obj.provides.build
-.PHONY : CMakeFiles/AVLTree.dir/library.cpp.obj.provides
+CMakeFiles/avltree.dir/library.cpp.obj.provides: CMakeFiles/avltree.dir/library.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\avltree.dir\build.make CMakeFiles/avltree.dir/library.cpp.obj.provides.build
+.PHONY : CMakeFiles/avltree.dir/library.cpp.obj.provides
 
-CMakeFiles/AVLTree.dir/library.cpp.obj.provides.build: CMakeFiles/AVLTree.dir/library.cpp.obj
+CMakeFiles/avltree.dir/library.cpp.obj.provides.build: CMakeFiles/avltree.dir/library.cpp.obj
 
 
-# Object files for target AVLTree
-AVLTree_OBJECTS = \
-"CMakeFiles/AVLTree.dir/library.cpp.obj"
+# Object files for target avltree
+avltree_OBJECTS = \
+"CMakeFiles/avltree.dir/library.cpp.obj"
 
-# External object files for target AVLTree
-AVLTree_EXTERNAL_OBJECTS =
+# External object files for target avltree
+avltree_EXTERNAL_OBJECTS =
 
-libAVLTree.a: CMakeFiles/AVLTree.dir/library.cpp.obj
-libAVLTree.a: CMakeFiles/AVLTree.dir/build.make
-libAVLTree.a: CMakeFiles/AVLTree.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libAVLTree.a"
-	$(CMAKE_COMMAND) -P CMakeFiles\AVLTree.dir\cmake_clean_target.cmake
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AVLTree.dir\link.txt --verbose=$(VERBOSE)
+libavltree.a: CMakeFiles/avltree.dir/library.cpp.obj
+libavltree.a: CMakeFiles/avltree.dir/build.make
+libavltree.a: CMakeFiles/avltree.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libavltree.a"
+	$(CMAKE_COMMAND) -P CMakeFiles\avltree.dir\cmake_clean_target.cmake
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\avltree.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/AVLTree.dir/build: libAVLTree.a
+CMakeFiles/avltree.dir/build: libavltree.a
 
-.PHONY : CMakeFiles/AVLTree.dir/build
+.PHONY : CMakeFiles/avltree.dir/build
 
-CMakeFiles/AVLTree.dir/requires: CMakeFiles/AVLTree.dir/library.cpp.obj.requires
+CMakeFiles/avltree.dir/requires: CMakeFiles/avltree.dir/library.cpp.obj.requires
 
-.PHONY : CMakeFiles/AVLTree.dir/requires
+.PHONY : CMakeFiles/avltree.dir/requires
 
-CMakeFiles/AVLTree.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles\AVLTree.dir\cmake_clean.cmake
-.PHONY : CMakeFiles/AVLTree.dir/clean
+CMakeFiles/avltree.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles\avltree.dir\cmake_clean.cmake
+.PHONY : CMakeFiles/avltree.dir/clean
 
-CMakeFiles/AVLTree.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\AVLTree\cmake-build-debug\CMakeFiles\AVLTree.dir\DependInfo.cmake" --color=$(COLOR)
-.PHONY : CMakeFiles/AVLTree.dir/depend
+CMakeFiles/avltree.dir/depend:
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug" "C:\Users\Mario\Documents\02 Master\WS 17-18\01 Algorithmen und Datenstrukturen\Praktikum\blatt-7-aufgabe-1-goteam\avltree\cmake-build-debug\CMakeFiles\avltree.dir\DependInfo.cmake" --color=$(COLOR)
+.PHONY : CMakeFiles/avltree.dir/depend
 

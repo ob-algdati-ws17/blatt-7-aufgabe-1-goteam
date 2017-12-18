@@ -1,1 +1,1 @@
-﻿Doxygen Doku to be published.
+﻿Doxygen doku to be published.

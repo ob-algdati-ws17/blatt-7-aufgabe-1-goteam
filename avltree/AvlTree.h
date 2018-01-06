@@ -11,8 +11,15 @@ private:
         node *rightSuccesor;
 
         node(const int, int, node *, node *, node *);
+        ~node();
+
 
     };
+    node *root = nullptr;
+
 public:
+    ~AvlTree();
 
 };
+
+#endif

@@ -1,6 +1,18 @@
 #ifndef AVLTREE_LIBRARY_H
 #define AVLTREE_LIBRARY_H
 
-void hello();
+class AvlTree{
+private:
+    struct node{
+        const int key;
+        int balanceFactor;
+        node *predecessor;
+        node *leftSuccessor;
+        node *rightSuccesor;
 
-#endif
+        node(const int, int, node *, node *, node *);
+
+    };
+public:
+
+};

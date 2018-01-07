@@ -8,11 +8,11 @@ private:
         int balanceFactor;
         node *predecessor;
         node *leftSuccessor;
-        node *rightSuccesor;
+        node *rightSuccessor;
 
         node(const int, int, node *, node *, node *);
+        node(const int, node *);
         ~node();
-
 
     };
     node *root = nullptr;

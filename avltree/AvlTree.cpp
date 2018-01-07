@@ -8,12 +8,20 @@ AvlTree::node::node(const int k,
                                          balanceFactor(bF),
                                          predecessor(p),
                                          leftSuccessor(lS),
-                                         rightSuccesor(rS){
+                                         rightSuccessor(rS){
+}
+
+AvlTree::node::node(const int k,
+                    AvlTree::node * p) : key(k),
+                                         balanceFactor(0),
+                                         predecessor(p),
+                                         leftSuccessor(nullptr),
+                                         rightSuccessor(nullptr) {
 }
 
 AvlTree::node::~node() {
     delete leftSuccessor;
-    delete rightSuccesor;
+    delete rightSuccessor;
 }
 
 AvlTree::~AvlTree() {

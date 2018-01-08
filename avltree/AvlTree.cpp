@@ -27,3 +27,40 @@ AvlTree::node::~node() {
 AvlTree::~AvlTree() {
     delete root;
 }
+
+void AvlTree::add(const int key) {
+
+}
+
+AvlTree::node *AvlTree::search(const int key) {
+    if (key == root->key){
+        return root;
+    }
+    if (key < root->key){
+        return search(key, root->leftSuccessor);
+    }
+    if (key > root->key){
+        return search(key, root->rightSuccessor);
+    }
+    return nullptr;
+}
+
+AvlTree::node *AvlTree::search(const int key, AvlTree::node *successor) {
+    if (successor == nullptr){
+        return nullptr;
+    }
+    if (key == successor->key){
+        return successor;
+    }
+    if (key < successor->key){
+        return search(key, successor->leftSuccessor);
+    }
+    if (key > successor->key){
+        return search(key, successor->rightSuccessor);
+    }
+    return nullptr;
+}
+
+void AvlTree::remove(const int key) {
+
+}

@@ -29,7 +29,47 @@ AvlTree::~AvlTree() {
 }
 
 void AvlTree::add(const int key) {
+    if (root == nullptr){
+        root = new node(key, nullptr);
+    }
 
+    if (key < root->key){
+        if (root->leftSuccessor == nullptr){
+            auto toInsert = new node(key, root);
+            root->leftSuccessor = toInsert;
+        } else{
+            add(key, root->leftSuccessor);
+        }
+    }
+
+    if (key > root->key){
+        if (root->rightSuccessor == nullptr){
+            auto toInsert = new node(key, root);
+            root->rightSuccessor = toInsert;
+        } else{
+            add(key, root->rightSuccessor);
+        }
+    }
+}
+
+void AvlTree::add(const int key, AvlTree::node *successor) {
+    if (key < successor->key){
+        if (successor->leftSuccessor == nullptr){
+            auto toInsert = new node(key, successor);
+            successor->leftSuccessor = toInsert;
+        } else{
+            add(key, successor->leftSuccessor);
+        }
+    }
+
+    if (key > successor->key){
+        if (successor->rightSuccessor == nullptr){
+            auto toInsert = new node(key, successor);
+            successor->rightSuccessor = toInsert;
+        } else{
+            add(key, successor->rightSuccessor);
+        }
+    }
 }
 
 AvlTree::node *AvlTree::search(const int key) {

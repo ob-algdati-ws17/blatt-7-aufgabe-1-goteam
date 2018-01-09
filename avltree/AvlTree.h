@@ -20,6 +20,7 @@ private:
 public:
     ~AvlTree();
     void add (const int key);
+    void add (const int key, AvlTree::node *successor);
     AvlTree::node *search (const int key);
     AvlTree::node *search (const int key, AvlTree::node *successor);
     void remove (const int key);

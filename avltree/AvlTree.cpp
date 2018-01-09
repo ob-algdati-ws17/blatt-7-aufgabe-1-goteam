@@ -73,6 +73,9 @@ void AvlTree::add(const int key, AvlTree::node *successor) {
 }
 
 AvlTree::node *AvlTree::search(const int key) {
+    if (root == nullptr){
+        return nullptr;
+    }
     if (key == root->key){
         return root;
     }

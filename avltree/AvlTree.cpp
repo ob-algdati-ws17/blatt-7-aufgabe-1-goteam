@@ -76,6 +76,23 @@ AvlTree::node *AvlTree::search(const int key, AvlTree::node *currentNode) {
     return nullptr;
 }
 
+void AvlTree::upIn(AvlTree::node *currentNode) {
+    if(currentNode->balanceFactor == 0){
+        if(currentNode->leftSuccessor != nullptr){
+            currentNode->balanceFactor = -1;
+        }
+        if(currentNode->rightSuccessor != nullptr){
+            currentNode->balanceFactor = 1;
+        }
+    }
+
+    //stop recursion at root
+    if(currentNode->predecessor != nullptr){
+        upIn(currentNode->predecessor);
+    }
+}
+
+
 void AvlTree::remove(const int key) {
 
 }

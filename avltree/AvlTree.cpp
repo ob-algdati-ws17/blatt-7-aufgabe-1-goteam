@@ -31,75 +31,47 @@ AvlTree::~AvlTree() {
 void AvlTree::add(const int key) {
     if (root == nullptr){
         root = new node(key, nullptr);
-    }
-
-    if (key < root->key){
-        if (root->leftSuccessor == nullptr){
-            auto toInsert = new node(key, root);
-            root->leftSuccessor = toInsert;
-        } else{
-            add(key, root->leftSuccessor);
-        }
-    }
-
-    if (key > root->key){
-        if (root->rightSuccessor == nullptr){
-            auto toInsert = new node(key, root);
-            root->rightSuccessor = toInsert;
-        } else{
-            add(key, root->rightSuccessor);
-        }
+    } else {
+        add(key, root);
     }
 }
 
-void AvlTree::add(const int key, AvlTree::node *successor) {
-    if (key < successor->key){
-        if (successor->leftSuccessor == nullptr){
-            auto toInsert = new node(key, successor);
-            successor->leftSuccessor = toInsert;
+void AvlTree::add(const int key, AvlTree::node *currentNode) {
+    if (key < currentNode->key){
+        if (currentNode->leftSuccessor == nullptr){
+            auto toInsert = new node(key, currentNode);
+            currentNode->leftSuccessor = toInsert;
         } else{
-            add(key, successor->leftSuccessor);
+            add(key, currentNode->leftSuccessor);
         }
     }
 
-    if (key > successor->key){
-        if (successor->rightSuccessor == nullptr){
-            auto toInsert = new node(key, successor);
-            successor->rightSuccessor = toInsert;
+    if (key > currentNode->key){
+        if (currentNode->rightSuccessor == nullptr){
+            auto toInsert = new node(key, currentNode);
+            currentNode->rightSuccessor = toInsert;
         } else{
-            add(key, successor->rightSuccessor);
+            add(key, currentNode->rightSuccessor);
         }
     }
 }
 
 AvlTree::node *AvlTree::search(const int key) {
-    if (root == nullptr){
-        return nullptr;
-    }
-    if (key == root->key){
-        return root;
-    }
-    if (key < root->key){
-        return search(key, root->leftSuccessor);
-    }
-    if (key > root->key){
-        return search(key, root->rightSuccessor);
-    }
-    return nullptr;
+    return search(key, root);
 }
 
-AvlTree::node *AvlTree::search(const int key, AvlTree::node *successor) {
-    if (successor == nullptr){
+AvlTree::node *AvlTree::search(const int key, AvlTree::node *currentNode) {
+    if (currentNode == nullptr){
         return nullptr;
     }
-    if (key == successor->key){
-        return successor;
+    if (key == currentNode->key){
+        return currentNode;
     }
-    if (key < successor->key){
-        return search(key, successor->leftSuccessor);
+    if (key < currentNode->key){
+        return search(key, currentNode->leftSuccessor);
     }
-    if (key > successor->key){
-        return search(key, successor->rightSuccessor);
+    if (key > currentNode->key){
+        return search(key, currentNode->rightSuccessor);
     }
     return nullptr;
 }

@@ -28,11 +28,20 @@ TEST(AvlTreeTest, Two_Node) {
     EXPECT_EQ(a.search(1), a.search(2)->predecessor);
 }
 
-TEST(AvlTreeTest, UpIn_Balance) {
+TEST(AvlTreeTest, UpIn_Balance_Right) {
     AvlTree a;
     a.add(1);
     EXPECT_EQ(0, a.search(1)->balanceFactor);
     a.add(2);
     EXPECT_EQ(0, a.search(2)->balanceFactor);
     EXPECT_EQ(1, a.search(1)->balanceFactor);
+}
+
+TEST(AvlTreeTest, UpIn_Balance_Left) {
+    AvlTree a;
+    a.add(2);
+    EXPECT_EQ(0, a.search(2)->balanceFactor);
+    a.add(1);
+    EXPECT_EQ(0, a.search(1)->balanceFactor);
+    EXPECT_EQ(-1, a.search(2)->balanceFactor);
 }

@@ -17,8 +17,10 @@ private:
     };
     node *root = nullptr;
     void add (const int key, AvlTree::node *currentNode);
+    void remove (const int key, AvlTree::node *currentNode );
     node *search (const int key, node *currentNode);
     void upIn(node *currentNode);
+    void upOut(node *currentNode);
 
 public:
     ~AvlTree();

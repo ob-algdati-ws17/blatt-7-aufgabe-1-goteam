@@ -140,3 +140,12 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
 void AvlTree::remove(const int key) {
 
 }
+
+void AvlTree::remove(const int key, AvlTree::node *currentNode) {
+
+}
+
+void AvlTree::upOut(AvlTree::node *currentNode) {
+
+}
+

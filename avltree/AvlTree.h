@@ -17,8 +17,8 @@ private:
     };
     node *root = nullptr;
     void add (const int key, AvlTree::node *currentNode);
-    void remove (const int key, AvlTree::node *currentNode );
     node *search (const int key, node *currentNode);
+
     void upOut(node *currentNode);
     void startUpIn(node *currentNode);
     void recursiveUpIn(node *currentNode);
@@ -28,6 +28,7 @@ public:
     void add (const int key);
     node *search (const int key);
     void remove (const int key);
+    friend node *findSymSucc(node *);
 
 };
 

@@ -1,5 +1,4 @@
 #include "testAvlTree.h"
-#include <memory>
 
 using namespace std;
 
@@ -26,4 +25,13 @@ TEST(AvlTreeTest, Two_Node) {
     EXPECT_EQ(nullptr, a.search(1)->leftSuccessor);
     EXPECT_EQ(a.search(1)->rightSuccessor, a.search(2));
     EXPECT_EQ(a.search(1), a.search(2)->predecessor);
+}
+
+TEST(AvlTreeTest, UpIn_Balance) {
+    AvlTree a;
+    a.add(1);
+    EXPECT_EQ(0, a.search(1)->balanceFactor);
+    a.add(2);
+    EXPECT_EQ(0, a.search(2)->balanceFactor);
+    EXPECT_EQ(1, a.search(1)->balanceFactor);
 }

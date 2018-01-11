@@ -41,6 +41,7 @@ void AvlTree::add(const int key, AvlTree::node *currentNode) {
         if (currentNode->leftSuccessor == nullptr){
             auto toInsert = new node(key, currentNode);
             currentNode->leftSuccessor = toInsert;
+            startUpIn(currentNode);
         } else{
             add(key, currentNode->leftSuccessor);
         }
@@ -50,6 +51,7 @@ void AvlTree::add(const int key, AvlTree::node *currentNode) {
         if (currentNode->rightSuccessor == nullptr){
             auto toInsert = new node(key, currentNode);
             currentNode->rightSuccessor = toInsert;
+            startUpIn(currentNode);
         } else{
             add(key, currentNode->rightSuccessor);
         }
@@ -76,7 +78,7 @@ AvlTree::node *AvlTree::search(const int key, AvlTree::node *currentNode) {
     return nullptr;
 }
 
-void AvlTree::upIn(AvlTree::node *currentNode) {
+void AvlTree::startUpIn(AvlTree::node *currentNode) {
     if(currentNode->balanceFactor == 0){
         if(currentNode->leftSuccessor != nullptr){
             currentNode->balanceFactor = -1;
@@ -84,14 +86,56 @@ void AvlTree::upIn(AvlTree::node *currentNode) {
         if(currentNode->rightSuccessor != nullptr){
             currentNode->balanceFactor = 1;
         }
-    }
-
-    //stop recursion at root
-    if(currentNode->predecessor != nullptr){
-        upIn(currentNode->predecessor);
+        //stop recursion at root
+        if(currentNode->predecessor != nullptr){
+            recursiveUpIn(currentNode->predecessor);
+        }
     }
 }
 
+void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
+    if( currentNode->predecessor != nullptr){
+        node *predecessor = currentNode->predecessor;
+
+        //left side
+        if(currentNode == predecessor->leftSuccessor){
+            // check if grew
+            if(currentNode->balanceFactor != 0){
+                switch(predecessor->balanceFactor){
+                    case -1: //TODO: Rotation
+                        break;
+                    case  0: predecessor->balanceFactor = -1;
+                        recursiveUpIn(predecessor);
+                        break;
+                    case  1: predecessor->balanceFactor = 0;
+                        recursiveUpIn(predecessor);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        //right side
+        if(currentNode == predecessor->rightSuccessor){
+            // check if grew
+            if(currentNode->balanceFactor != 0){
+                switch(predecessor->balanceFactor){
+                    case -1: predecessor->balanceFactor = 0;
+                        recursiveUpIn(predecessor);
+                        break;
+                    case  0: predecessor->balanceFactor = 1;
+                        recursiveUpIn(predecessor);
+                        break;
+                    case  1: //TODO: Rotation
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+}
 
 void AvlTree::remove(const int key) {
 
@@ -104,3 +148,4 @@ void AvlTree::remove(const int key, AvlTree::node *currentNode) {
 void AvlTree::upOut(AvlTree::node *currentNode) {
 
 }
+

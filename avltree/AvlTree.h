@@ -19,8 +19,9 @@ private:
     void add (const int key, AvlTree::node *currentNode);
     void remove (const int key, AvlTree::node *currentNode );
     node *search (const int key, node *currentNode);
-    void upIn(node *currentNode);
     void upOut(node *currentNode);
+    void startUpIn(node *currentNode);
+    void recursiveUpIn(node *currentNode);
 
 public:
     ~AvlTree();

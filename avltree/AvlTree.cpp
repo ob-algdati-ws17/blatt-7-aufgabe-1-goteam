@@ -138,7 +138,60 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
 }
 
 void AvlTree::remove(const int value) {
+    if (root != nullptr) {
+        auto nodeToDelete = search(value);
+        if (nodeToDelete != nullptr) {
 
+            // both successors are leafs
+            if (nodeToDelete->leftSuccessor == nullptr && nodeToDelete->rightSuccessor == nullptr) {
+                // get predecessor of the node to delete
+                auto p = nodeToDelete->predecessor;
+                // if the note to delete is the left successor of p, set p's left successor = nullptr
+                if (nodeToDelete == p->leftSuccessor) {
+                    p->leftSuccessor = nullptr;
+                    auto q = p->rightSuccessor;
+                    // the height of p was reduces by 1
+                    if (q->balanceFactor == 0) {
+                        //todo: upout
+                    } else if (q->balanceFactor == 2) {
+                        //todo:  rotation or double rotation to balance tree with root p
+                        //todo: if new root of split tree has balance 0 -> upout
+                    }
+                } else {
+                    p->rightSuccessor = nullptr;
+                    auto q = p->leftSuccessor;
+                    // the height of p was reduces by 1
+                    if (q->balanceFactor == 0) {
+                        //todo: upout
+                    } else if (q->balanceFactor == 2) {
+                        //todo:  rotation or double rotation to balance tree with root p
+                        //todo: if new root of split tree has balance 0 -> upout
+                    }
+                }
+                // both successors are nodes
+            } else if (nodeToDelete->leftSuccessor != nullptr && nodeToDelete->rightSuccessor != nullptr) {
+                auto p = nodeToDelete;
+                auto symSucKey = findSymSucc(nodeToDelete);
+                //todo: replace key of p with symSucKey
+                //todo: delete sumSuc like in the cases before
+
+                // one successor leaf and the other node
+            } else {
+                auto p = nodeToDelete;
+                if (p->leftSuccessor != nullptr) {
+                    auto q = p->leftSuccessor;
+                    //todo: replace key of p with key of q. replace q with a leaf
+                    //todo: upout
+                } else {
+                    auto q = p->rightSuccessor;
+                    //todo: replace key of p with key of q. replace q with a leaf
+                    //todo: upout
+                }
+
+            }
+
+        }
+    }
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {
@@ -155,4 +208,6 @@ AvlTree::node *findSymSucc(AvlTree::node *node) {
     }
     return nullptr;
 }
+
+
 

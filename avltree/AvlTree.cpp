@@ -137,15 +137,22 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
     }
 }
 
-void AvlTree::remove(const int key) {
-
-}
-
-void AvlTree::remove(const int key, AvlTree::node *currentNode) {
+void AvlTree::remove(const int value) {
 
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {
 
+}
+
+AvlTree::node *findSymSucc(AvlTree::node *node) {
+    if (node->rightSuccessor != nullptr) {
+        auto symSucc = node->rightSuccessor;
+        while (symSucc->leftSuccessor != nullptr) {
+            symSucc = symSucc->leftSuccessor;
+        }
+        return symSucc;
+    }
+    return nullptr;
 }
 

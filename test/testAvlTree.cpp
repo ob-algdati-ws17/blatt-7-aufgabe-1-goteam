@@ -44,3 +44,16 @@ TEST(AvlTreeTest, UpIn_Balance_Left) {
     EXPECT_EQ(0, a.search(1)->balanceFactor);
     EXPECT_EQ(-1, a.search(2)->balanceFactor);
 }
+
+TEST(AvlTreeTest, UpIn_Balance) {
+    AvlTree a;
+    a.add(2);
+    EXPECT_EQ(0, a.search(2)->balanceFactor);
+    a.add(1);
+    EXPECT_EQ(0, a.search(1)->balanceFactor);
+    EXPECT_EQ(-1, a.search(2)->balanceFactor);
+    a.add(3);
+    EXPECT_EQ(0, a.search(1)->balanceFactor);
+    EXPECT_EQ(0, a.search(2)->balanceFactor);
+    EXPECT_EQ(0, a.search(3)->balanceFactor);
+}

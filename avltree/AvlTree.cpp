@@ -90,6 +90,8 @@ void AvlTree::startUpIn(AvlTree::node *currentNode) {
         if(currentNode->predecessor != nullptr){
             recursiveUpIn(currentNode->predecessor);
         }
+    } else {
+        currentNode->balanceFactor = 0;
     }
 }
 

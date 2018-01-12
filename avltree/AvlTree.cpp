@@ -109,7 +109,7 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
                             rotateRight(currentNode);
                         }
                         if(currentNode->balanceFactor == 1){
-                            //TODO: doublerotateLeftRight
+                            doublerotateLeftRight(currentNode);
                         }
                         break;
                     case  0:
@@ -144,7 +144,7 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
                             rotateLeft(currentNode);
                         }
                         if(currentNode->balanceFactor == -1){
-                            //TODO: doublerotateRightLeft
+                            doublerotateRightLeft(currentNode);
                         }
                         break;
                     default:
@@ -279,6 +279,16 @@ void AvlTree::rotateLeft(AvlTree::node *currentNode) {
 
     predecessor->rightSuccessor = nullptr;
     predecessor->balanceFactor = 0;
+}
+
+void AvlTree::doublerotateLeftRight(AvlTree::node *currentNode) {
+    rotateLeft(currentNode->rightSuccessor);
+    rotateRight(currentNode->predecessor);
+}
+
+void AvlTree::doublerotateRightLeft(AvlTree::node *currentNode) {
+    rotateRight(currentNode->leftSuccessor);
+    rotateLeft(currentNode->predecessor);
 }
 
 

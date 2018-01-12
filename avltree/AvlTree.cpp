@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "AvlTree.h"
 
 AvlTree::node::node(const int k,
@@ -8,15 +9,15 @@ AvlTree::node::node(const int k,
                                          balanceFactor(bF),
                                          predecessor(p),
                                          leftSuccessor(lS),
-                                         rightSuccessor(rS){
+                                         rightSuccessor(rS) {
 }
 
 AvlTree::node::node(const int k,
-                    AvlTree::node * p) : key(k),
-                                         balanceFactor(0),
-                                         predecessor(p),
-                                         leftSuccessor(nullptr),
-                                         rightSuccessor(nullptr) {
+                    AvlTree::node *p) : key(k),
+                                        balanceFactor(0),
+                                        predecessor(p),
+                                        leftSuccessor(nullptr),
+                                        rightSuccessor(nullptr) {
 }
 
 AvlTree::node::~node() {
@@ -29,7 +30,7 @@ AvlTree::~AvlTree() {
 }
 
 void AvlTree::add(const int key) {
-    if (root == nullptr){
+    if (root == nullptr) {
         root = new node(key, nullptr);
     } else {
         add(key, root);
@@ -37,22 +38,22 @@ void AvlTree::add(const int key) {
 }
 
 void AvlTree::add(const int key, AvlTree::node *currentNode) {
-    if (key < currentNode->key){
-        if (currentNode->leftSuccessor == nullptr){
+    if (key < currentNode->key) {
+        if (currentNode->leftSuccessor == nullptr) {
             auto toInsert = new node(key, currentNode);
             currentNode->leftSuccessor = toInsert;
             startUpIn(currentNode);
-        } else{
+        } else {
             add(key, currentNode->leftSuccessor);
         }
     }
 
-    if (key > currentNode->key){
-        if (currentNode->rightSuccessor == nullptr){
+    if (key > currentNode->key) {
+        if (currentNode->rightSuccessor == nullptr) {
             auto toInsert = new node(key, currentNode);
             currentNode->rightSuccessor = toInsert;
             startUpIn(currentNode);
-        } else{
+        } else {
             add(key, currentNode->rightSuccessor);
         }
     }
@@ -63,51 +64,53 @@ AvlTree::node *AvlTree::search(const int key) {
 }
 
 AvlTree::node *AvlTree::search(const int key, AvlTree::node *currentNode) {
-    if (currentNode == nullptr){
+    if (currentNode == nullptr) {
         return nullptr;
     }
-    if (key == currentNode->key){
+    if (key == currentNode->key) {
         return currentNode;
     }
-    if (key < currentNode->key){
+    if (key < currentNode->key) {
         return search(key, currentNode->leftSuccessor);
     }
-    if (key > currentNode->key){
+    if (key > currentNode->key) {
         return search(key, currentNode->rightSuccessor);
     }
     return nullptr;
 }
 
 void AvlTree::startUpIn(AvlTree::node *currentNode) {
-    if(currentNode->balanceFactor == 0){
-        if(currentNode->leftSuccessor != nullptr){
+    if (currentNode->balanceFactor == 0) {
+        if (currentNode->leftSuccessor != nullptr) {
             currentNode->balanceFactor = -1;
         }
-        if(currentNode->rightSuccessor != nullptr){
+        if (currentNode->rightSuccessor != nullptr) {
             currentNode->balanceFactor = 1;
         }
         //stop recursion at root
-        if(currentNode->predecessor != nullptr){
+        if (currentNode->predecessor != nullptr) {
             recursiveUpIn(currentNode->predecessor);
         }
     }
 }
 
 void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
-    if( currentNode->predecessor != nullptr){
+    if (currentNode->predecessor != nullptr) {
         node *predecessor = currentNode->predecessor;
 
         //left side
-        if(currentNode == predecessor->leftSuccessor){
+        if (currentNode == predecessor->leftSuccessor) {
             // check if grew
-            if(currentNode->balanceFactor != 0){
-                switch(predecessor->balanceFactor){
+            if (currentNode->balanceFactor != 0) {
+                switch (predecessor->balanceFactor) {
                     case -1: //TODO: Rotation
                         break;
-                    case  0: predecessor->balanceFactor = -1;
+                    case 0:
+                        predecessor->balanceFactor = -1;
                         recursiveUpIn(predecessor);
                         break;
-                    case  1: predecessor->balanceFactor = 0;
+                    case 1:
+                        predecessor->balanceFactor = 0;
                         recursiveUpIn(predecessor);
                         break;
                     default:
@@ -117,17 +120,19 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
         }
 
         //right side
-        if(currentNode == predecessor->rightSuccessor){
+        if (currentNode == predecessor->rightSuccessor) {
             // check if grew
-            if(currentNode->balanceFactor != 0){
-                switch(predecessor->balanceFactor){
-                    case -1: predecessor->balanceFactor = 0;
+            if (currentNode->balanceFactor != 0) {
+                switch (predecessor->balanceFactor) {
+                    case -1:
+                        predecessor->balanceFactor = 0;
                         recursiveUpIn(predecessor);
                         break;
-                    case  0: predecessor->balanceFactor = 1;
+                    case 0:
+                        predecessor->balanceFactor = 1;
                         recursiveUpIn(predecessor);
                         break;
-                    case  1: //TODO: Rotation
+                    case 1: //TODO: Rotation
                         break;
                     default:
                         break;
@@ -137,64 +142,38 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
     }
 }
 
+
 void AvlTree::remove(const int value) {
     if (root != nullptr) {
         auto nodeToDelete = search(value);
         if (nodeToDelete != nullptr) {
-
-            // both successors are leafs
+            // CASE 1: Both successors of the node to delete are leafs
             if (nodeToDelete->leftSuccessor == nullptr && nodeToDelete->rightSuccessor == nullptr) {
-                // get predecessor of the node to delete
-                auto p = nodeToDelete->predecessor;
-                // if the note to delete is the left successor of p, set p's left successor = nullptr
-                if (nodeToDelete == p->leftSuccessor) {
-                    p->leftSuccessor = nullptr;
-                    auto q = p->rightSuccessor;
-                    // the height of p was reduces by 1
-                    if (q->balanceFactor == 0) {
-                        //todo: upout
-                    } else if (q->balanceFactor == 2) {
-                        //todo:  rotation or double rotation to balance tree with root p
-                        //todo: if new root of split tree has balance 0 -> upout
+                if (nodeToDelete != root) {
+                    auto p = nodeToDelete->predecessor;
+                    if (p->balanceFactor == 0) {
+                        if (nodeToDelete == p->leftSuccessor) {
+                            p->balanceFactor = 1;
+                        } else {
+                            p->balanceFactor = -1;
+                        }
+                        delete nodeToDelete;
+
+                    } else if(p->balanceFactor == -1 or p->balanceFactor == 1){
+                        p->balanceFactor = 0;
+                        //TODO: UPOUT
+                        upOut(p);
                     }
                 } else {
-                    p->rightSuccessor = nullptr;
-                    auto q = p->leftSuccessor;
-                    // the height of p was reduces by 1
-                    if (q->balanceFactor == 0) {
-                        //todo: upout
-                    } else if (q->balanceFactor == 2) {
-                        //todo:  rotation or double rotation to balance tree with root p
-                        //todo: if new root of split tree has balance 0 -> upout
-                    }
+                    delete root;
                 }
-                // both successors are nodes
-            } else if (nodeToDelete->leftSuccessor != nullptr && nodeToDelete->rightSuccessor != nullptr) {
-                auto p = nodeToDelete;
-                auto symSucKey = findSymSucc(nodeToDelete);
-                //todo: replace key of p with symSucKey
-                //todo: delete sumSuc like in the cases before
-
-                // one successor leaf and the other node
-            } else {
-                auto p = nodeToDelete;
-                if (p->leftSuccessor != nullptr) {
-                    auto q = p->leftSuccessor;
-                    //todo: replace key of p with key of q. replace q with a leaf
-                    //todo: upout
-                } else {
-                    auto q = p->rightSuccessor;
-                    //todo: replace key of p with key of q. replace q with a leaf
-                    //todo: upout
-                }
-
             }
-
         }
     }
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {
+
 
 }
 
@@ -208,6 +187,8 @@ AvlTree::node *findSymSucc(AvlTree::node *node) {
     }
     return nullptr;
 }
+
+
 
 
 

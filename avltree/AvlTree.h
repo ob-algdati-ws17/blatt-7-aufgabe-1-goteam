@@ -36,7 +36,7 @@ public:
     void remove (const int key);
     void removeNodeWithoutSuccessors(node *);
     void removeNodeWithTwoSuccessors(node *);
-    void removeNodeWithOneSuccessors(node *);
+    void removeNodeWithOneSuccessor(node *);
     friend node *findSymSucc(node *);
     friend int height(node *);
 };

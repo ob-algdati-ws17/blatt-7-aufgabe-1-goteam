@@ -167,7 +167,7 @@ void AvlTree::remove(const int value) {
             } else if (nodeToDelete->leftSuccessor != nullptr && nodeToDelete->rightSuccessor != nullptr) {
                 removeNodeWithTwoSuccessors(nodeToDelete);
             } else {
-                removeNodeWithOneSuccessors(nodeToDelete);
+                removeNodeWithOneSuccessor(nodeToDelete);
             }
         }
     }
@@ -191,7 +191,7 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
 
 }
 
-void AvlTree::removeNodeWithOneSuccessors(AvlTree::node *nodeToDelete) {
+void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
     node* predecessor = nodeToDelete->predecessor;
     node* successor = nullptr;
     if(nodeToDelete->leftSuccessor != nullptr){
@@ -210,6 +210,7 @@ void AvlTree::removeNodeWithOneSuccessors(AvlTree::node *nodeToDelete) {
             predecessor->rightSuccessor = successor;
         }
     }
+    delete(nodeToDelete);
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {

@@ -177,7 +177,46 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
     if (nodeToDelete != root) {
         auto p = nodeToDelete->predecessor;
         if (nodeToDelete == p->leftSuccessor) {
+            auto q =p->rightSuccessor;
+            delete nodeToDelete;
+            auto qHeight = height(q);
+            switch (qHeight) {
+                case 0:
+                    p->balanceFactor = 0;
+                    upOut(p);
+                    break;
+                case 1:
+                    p->balanceFactor = 1;
+                    break;
 
+                case 2:
+
+                    break;
+
+                default:
+                    break;
+            }
+
+        } else {
+            auto q =p->leftSuccessor;
+            delete nodeToDelete;
+            auto qHeight = height(q);
+            switch (qHeight) {
+                case 0:
+                    p->balanceFactor = 0;
+                    upOut(p);
+                    break;
+                case 1:
+                    p->balanceFactor = -1;
+                    break;
+
+                case 2:
+
+                    break;
+
+                default:
+                    break;
+            }
         }
     } else {
         delete root;
@@ -193,8 +232,30 @@ void AvlTree::removeNodeWithOneSuccessors(AvlTree::node *nodeToDelete) {
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {
+    auto p = currentNode;
+    auto father = p->predecessor;
+    if (p->balanceFactor == 0) {
+        if (father->leftSuccessor == p) {
+            if (father->balanceFactor == -1) {
+                father->balanceFactor = 0;
+                upOut(father);
+            } else if (father->balanceFactor == 0) {
+                father->balanceFactor = 1;
+                return;
+            } else if(father->balanceFactor == +1) {
+                auto q = father->rightSuccessor;
+                if (q->balanceFactor == 0) {
 
+                } else if (q->balanceFactor == +1) {
 
+                } else if (q->balanceFactor == -1) {
+
+                }
+            }
+        } else if (father->rightSuccessor == p) {
+
+        }
+    }
 }
 
 AvlTree::node *findSymSucc(AvlTree::node *node) {

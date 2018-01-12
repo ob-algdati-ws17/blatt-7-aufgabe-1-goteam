@@ -102,12 +102,20 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
             // check if grew
             if(currentNode->balanceFactor != 0){
                 switch(predecessor->balanceFactor){
-                    case -1: //TODO: Rotation
+                    case -1:
+                        if(currentNode->balanceFactor == -1){
+                            //TODO: rotateRight
+                        }
+                        if(currentNode->balanceFactor == 1){
+                            //TODO: doublerotateLeftRight
+                        }
                         break;
-                    case  0: predecessor->balanceFactor = -1;
+                    case  0:
+                        predecessor->balanceFactor = -1;
                         recursiveUpIn(predecessor);
                         break;
-                    case  1: predecessor->balanceFactor = 0;
+                    case  1:
+                        predecessor->balanceFactor = 0;
                         recursiveUpIn(predecessor);
                         break;
                     default:
@@ -121,13 +129,21 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
             // check if grew
             if(currentNode->balanceFactor != 0){
                 switch(predecessor->balanceFactor){
-                    case -1: predecessor->balanceFactor = 0;
+                    case -1:
+                        predecessor->balanceFactor = 0;
                         recursiveUpIn(predecessor);
                         break;
-                    case  0: predecessor->balanceFactor = 1;
+                    case  0:
+                        predecessor->balanceFactor = 1;
                         recursiveUpIn(predecessor);
                         break;
-                    case  1: //TODO: Rotation
+                    case  1:
+                        if(currentNode->balanceFactor == 1){
+                            //TODO: rotateLeft
+                        }
+                        if(currentNode->balanceFactor == -1){
+                            //TODO: doublerotateRightLeft
+                        }
                         break;
                     default:
                         break;

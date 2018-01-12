@@ -188,7 +188,6 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                 case 1:
                     p->balanceFactor = 1;
                     break;
-
                 case 2:
 
                     break;

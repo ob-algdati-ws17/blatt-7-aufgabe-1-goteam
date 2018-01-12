@@ -23,6 +23,9 @@ private:
     void startUpIn(node *currentNode);
     void recursiveUpIn(node *currentNode);
 
+    void rotateRight(node *currentNode);
+    void rotateLeft(node *currentNode);
+
 public:
     ~AvlTree();
     void add (const int key);

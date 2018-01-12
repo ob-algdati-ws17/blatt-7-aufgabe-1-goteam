@@ -167,3 +167,14 @@ TEST(AvlTreeTest, UpIn_Rotate_RightLeft_Big) {
     EXPECT_EQ(0, a.search(4)->balanceFactor);
     EXPECT_EQ(0, a.search(5)->balanceFactor);
 }
+
+TEST(AvlTreeTest, Test_Height) {
+    AvlTree a;
+    a.add(2);
+    a.add(1);
+    a.add(5);
+    a.add(4);
+
+    auto test = a.search(5);
+    EXPECT_EQ(height(test), 1);
+}

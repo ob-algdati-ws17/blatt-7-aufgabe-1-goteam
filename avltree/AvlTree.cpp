@@ -163,27 +163,33 @@ void AvlTree::remove(const int value) {
         if (nodeToDelete != nullptr) {
             // CASE 1: Both successors of the node to delete are leafs
             if (nodeToDelete->leftSuccessor == nullptr && nodeToDelete->rightSuccessor == nullptr) {
-                if (nodeToDelete != root) {
-                    auto p = nodeToDelete->predecessor;
-                    if (p->balanceFactor == 0) {
-                        if (nodeToDelete == p->leftSuccessor) {
-                            p->balanceFactor = 1;
-                        } else {
-                            p->balanceFactor = -1;
-                        }
-                        delete nodeToDelete;
-
-                    } else if(p->balanceFactor == -1 or p->balanceFactor == 1){
-                        p->balanceFactor = 0;
-                        //TODO: UPOUT
-                        upOut(p);
-                    }
-                } else {
-                    delete root;
-                }
+                removeNodeWithoutSuccessors(nodeToDelete);
+            } else if (nodeToDelete->leftSuccessor != nullptr && nodeToDelete->rightSuccessor != nullptr) {
+                removeNodeWithTwoSuccessors(nodeToDelete);
+            } else {
+                removeNodeWithOneSuccessors(nodeToDelete);
             }
         }
     }
+}
+
+void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
+    if (nodeToDelete != root) {
+        auto p = nodeToDelete->predecessor;
+        if (nodeToDelete == p->leftSuccessor) {
+
+        }
+    } else {
+        delete root;
+    }
+}
+
+void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
+
+}
+
+void AvlTree::removeNodeWithOneSuccessors(AvlTree::node *nodeToDelete) {
+
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {
@@ -265,6 +271,19 @@ void AvlTree::doublerotateRightLeft(AvlTree::node *currentNode) {
     rotateRight(currentNode->leftSuccessor);
     rotateLeft(currentNode->predecessor);
 }
+
+int height(AvlTree::node *node) {
+    if (node != nullptr) {
+        return 1 + std::max(height(node->leftSuccessor),height(node->rightSuccessor));
+    }
+    return -1;
+}
+
+
+
+
+
+
 
 
 

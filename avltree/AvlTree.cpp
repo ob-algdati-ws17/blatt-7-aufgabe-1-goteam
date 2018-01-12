@@ -88,9 +88,11 @@ void AvlTree::startUpIn(AvlTree::node *currentNode) {
             currentNode->balanceFactor = 1;
         }
         //stop recursion at root
-        if (currentNode->predecessor != nullptr) {
-            recursiveUpIn(currentNode->predecessor);
+        if(currentNode->predecessor != nullptr){
+            recursiveUpIn(currentNode);
         }
+    } else {
+        currentNode->balanceFactor = 0;
     }
 }
 
@@ -101,15 +103,21 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
         //left side
         if (currentNode == predecessor->leftSuccessor) {
             // check if grew
-            if (currentNode->balanceFactor != 0) {
-                switch (predecessor->balanceFactor) {
-                    case -1: //TODO: Rotation
+            if(currentNode->balanceFactor != 0){
+                switch(predecessor->balanceFactor){
+                    case -1:
+                        if(currentNode->balanceFactor == -1){
+                            rotateRight(currentNode);
+                        }
+                        if(currentNode->balanceFactor == 1){
+                            doublerotateLeftRight(currentNode);
+                        }
                         break;
-                    case 0:
+                    case  0:
                         predecessor->balanceFactor = -1;
                         recursiveUpIn(predecessor);
                         break;
-                    case 1:
+                    case  1:
                         predecessor->balanceFactor = 0;
                         recursiveUpIn(predecessor);
                         break;
@@ -122,17 +130,23 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
         //right side
         if (currentNode == predecessor->rightSuccessor) {
             // check if grew
-            if (currentNode->balanceFactor != 0) {
-                switch (predecessor->balanceFactor) {
+            if(currentNode->balanceFactor != 0){
+                switch(predecessor->balanceFactor){
                     case -1:
                         predecessor->balanceFactor = 0;
                         recursiveUpIn(predecessor);
                         break;
-                    case 0:
+                    case  0:
                         predecessor->balanceFactor = 1;
                         recursiveUpIn(predecessor);
                         break;
-                    case 1: //TODO: Rotation
+                    case  1:
+                        if(currentNode->balanceFactor == 1){
+                            rotateLeft(currentNode);
+                        }
+                        if(currentNode->balanceFactor == -1){
+                            doublerotateRightLeft(currentNode);
+                        }
                         break;
                     default:
                         break;
@@ -186,6 +200,70 @@ AvlTree::node *findSymSucc(AvlTree::node *node) {
         return symSucc;
     }
     return nullptr;
+}
+
+void AvlTree::rotateRight(AvlTree::node *currentNode) {
+    node* predecessor = currentNode->predecessor;
+
+    if(predecessor == root){
+        root = currentNode;
+        currentNode->predecessor = nullptr;
+    } else {
+        node* prePredecessor = predecessor->predecessor;
+
+        if(predecessor == prePredecessor->leftSuccessor){
+            prePredecessor->leftSuccessor = currentNode;
+            currentNode->predecessor = prePredecessor;
+        }
+        if(predecessor == prePredecessor->rightSuccessor){
+            prePredecessor->rightSuccessor = currentNode;
+            currentNode->predecessor = prePredecessor;
+        }
+    }
+    currentNode->balanceFactor = 0;
+
+    currentNode->rightSuccessor = predecessor;
+    predecessor->predecessor = currentNode;
+
+    predecessor->leftSuccessor = nullptr;
+    predecessor->balanceFactor = 0;
+}
+
+void AvlTree::rotateLeft(AvlTree::node *currentNode) {
+    node* predecessor = currentNode->predecessor;
+
+    if(predecessor == root){
+        root = currentNode;
+        currentNode->predecessor = nullptr;
+    } else {
+        node* prePredecessor = predecessor->predecessor;
+
+        if(predecessor == prePredecessor->rightSuccessor){
+            prePredecessor->rightSuccessor = currentNode;
+            currentNode->predecessor = prePredecessor;
+        }
+        if(predecessor == prePredecessor->leftSuccessor){
+            prePredecessor->leftSuccessor = currentNode;
+            currentNode->predecessor = prePredecessor;
+        }
+    }
+    currentNode->balanceFactor = 0;
+
+    currentNode->leftSuccessor = predecessor;
+    predecessor->predecessor = currentNode;
+
+    predecessor->rightSuccessor = nullptr;
+    predecessor->balanceFactor = 0;
+}
+
+void AvlTree::doublerotateLeftRight(AvlTree::node *currentNode) {
+    rotateLeft(currentNode->rightSuccessor);
+    rotateRight(currentNode->predecessor);
+}
+
+void AvlTree::doublerotateRightLeft(AvlTree::node *currentNode) {
+    rotateRight(currentNode->leftSuccessor);
+    rotateLeft(currentNode->predecessor);
 }
 
 

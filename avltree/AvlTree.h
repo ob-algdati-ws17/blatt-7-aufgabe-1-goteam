@@ -4,7 +4,7 @@
 class AvlTree{
 private:
     struct node{
-        int key;
+        const int key;
         int balanceFactor;
         node *predecessor;
         node *leftSuccessor;

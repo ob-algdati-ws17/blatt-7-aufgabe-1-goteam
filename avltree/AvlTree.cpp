@@ -141,7 +141,7 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
                         break;
                     case  1:
                         if(currentNode->balanceFactor == 1){
-                            //TODO: rotateLeft
+                            rotateLeft(currentNode);
                         }
                         if(currentNode->balanceFactor == -1){
                             //TODO: doublerotateRightLeft
@@ -230,7 +230,6 @@ AvlTree::node *findSymSucc(AvlTree::node *node) {
 void AvlTree::rotateRight(AvlTree::node *currentNode) {
     node* predecessor = currentNode->predecessor;
 
-
     if(predecessor == root){
         root = currentNode;
         currentNode->predecessor = nullptr;
@@ -256,7 +255,30 @@ void AvlTree::rotateRight(AvlTree::node *currentNode) {
 }
 
 void AvlTree::rotateLeft(AvlTree::node *currentNode) {
+    node* predecessor = currentNode->predecessor;
 
+    if(predecessor == root){
+        root = currentNode;
+        currentNode->predecessor = nullptr;
+    } else {
+        node* prePredecessor = predecessor->predecessor;
+
+        if(predecessor == prePredecessor->rightSuccessor){
+            prePredecessor->rightSuccessor = currentNode;
+            currentNode->predecessor = prePredecessor;
+        }
+        if(predecessor == prePredecessor->leftSuccessor){
+            prePredecessor->leftSuccessor = currentNode;
+            currentNode->predecessor = prePredecessor;
+        }
+    }
+    currentNode->balanceFactor = 0;
+
+    currentNode->leftSuccessor = predecessor;
+    predecessor->predecessor = currentNode;
+
+    predecessor->rightSuccessor = nullptr;
+    predecessor->balanceFactor = 0;
 }
 
 

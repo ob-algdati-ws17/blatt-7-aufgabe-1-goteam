@@ -137,3 +137,33 @@ TEST(AvlTreeTest, UpIn_Rotate_RightLeft) {
     EXPECT_EQ(a.search(1), a.search(2)->leftSuccessor);
     EXPECT_EQ(a.search(3), a.search(2)->rightSuccessor);
 }
+
+TEST(AvlTreeTest, UpIn_Rotate_LeftRight_Big) {
+    AvlTree a;
+    a.add(4);
+    a.add(5);
+    a.add(3);
+    a.add(1);
+    a.add(2);
+    EXPECT_EQ(a.search(4), a.search(2)->predecessor);
+    EXPECT_EQ(nullptr, a.search(4)->predecessor);
+    EXPECT_EQ(-1, a.search(4)->balanceFactor);
+    EXPECT_EQ(0, a.search(1)->balanceFactor);
+    EXPECT_EQ(0, a.search(2)->balanceFactor);
+    EXPECT_EQ(0, a.search(3)->balanceFactor);
+}
+
+TEST(AvlTreeTest, UpIn_Rotate_RightLeft_Big) {
+    AvlTree a;
+    a.add(2);
+    a.add(1);
+    a.add(5);
+    a.add(4);
+    a.add(3);
+    EXPECT_EQ(a.search(2), a.search(4)->predecessor);
+    EXPECT_EQ(nullptr, a.search(2)->predecessor);
+    EXPECT_EQ(1, a.search(2)->balanceFactor);
+    EXPECT_EQ(0, a.search(3)->balanceFactor);
+    EXPECT_EQ(0, a.search(4)->balanceFactor);
+    EXPECT_EQ(0, a.search(5)->balanceFactor);
+}

@@ -178,3 +178,18 @@ TEST(AvlTreeTest, Test_Height) {
     auto test = a.search(5);
     EXPECT_EQ(height(test), 1);
 }
+
+TEST(AvlTreeTest, RemoveNode_OneLeaf) {
+    AvlTree a;
+    a.add(3);
+    a.add(4);
+    a.add(2);
+    a.add(1);
+
+    EXPECT_EQ(a.search(2), a.search(3)->leftSuccessor);
+
+    a.remove(2);
+    EXPECT_EQ(nullptr, a.search(2));
+    EXPECT_EQ(a.search(1), a.search(3)->leftSuccessor);
+    EXPECT_EQ(a.search(3), a.search(1)->predecessor);
+}

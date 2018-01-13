@@ -303,7 +303,24 @@ void AvlTree::upOut(AvlTree::node *currentNode) {
                 }
             }
         } else if (father->rightSuccessor == p) {
-
+            if (father->balanceFactor == +1) {
+                father->balanceFactor = 0;
+                upOut(father);
+            } else if (father->balanceFactor == 0) {
+                father->balanceFactor = -1;
+            } else if (father->balanceFactor == -1) {
+                auto q = father->leftSuccessor;
+                if (q->balanceFactor == 0) {
+                    rotateRight(q);
+                } else if (q->balanceFactor == -1) {
+                    rotateRight(q);
+                    upOut(q);
+                } else if (q->balanceFactor == +1) {
+                    auto r = q->rightSuccessor;
+                    doublerotateLeftRight(q);
+                    upOut(r);
+                }
+            }
         }
     }
 }

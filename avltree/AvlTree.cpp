@@ -124,7 +124,6 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
                         break;
                     case  1:
                         predecessor->balanceFactor = 0;
-                        recursiveUpIn(predecessor);
                         break;
                     default:
                         break;
@@ -139,7 +138,6 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
                 switch(predecessor->balanceFactor){
                     case -1:
                         predecessor->balanceFactor = 0;
-                        recursiveUpIn(predecessor);
                         break;
                     case  0:
                         predecessor->balanceFactor = 1;

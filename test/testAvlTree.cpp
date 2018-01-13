@@ -330,19 +330,19 @@ TEST(AvlTreeTest, RemoveNode_TwoSuccessors) {
 }
 
 
-//TEST(AvlTreeTest, UpOut_TwoSuccessors) {
-//    AvlTree a;
-//    a.add(3);
-//    a.add(2);
-//    a.add(5);
-//    a.add(1);
-//    a.add(4);
-//    a.add(6);
-//
-//    EXPECT_EQ(a.search(3), a.search(5)->predecessor);
-//
-//    a.remove(5);
-//    EXPECT_EQ(nullptr, a.search(5));
-//
-//    EXPECT_EQ(-1, a.search(6)->balanceFactor);
-//}
+TEST(AvlTreeTest, UpOut_TwoSuccessors) {
+    AvlTree a;
+    a.add(3);
+    a.add(2);
+    a.add(5);
+    a.add(1);
+    a.add(4);
+    a.add(6);
+
+    EXPECT_EQ(a.search(3), a.search(5)->predecessor);
+
+    a.remove(5);
+    EXPECT_EQ(nullptr, a.search(5));
+    EXPECT_EQ(a.search(6), a.search(3)->rightSuccessor);
+    EXPECT_EQ(-1, a.search(6)->balanceFactor);
+}

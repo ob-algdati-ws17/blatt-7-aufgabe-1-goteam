@@ -167,7 +167,7 @@ void AvlTree::remove(const int value) {
             } else if (nodeToDelete->leftSuccessor != nullptr && nodeToDelete->rightSuccessor != nullptr) {
                 removeNodeWithTwoSuccessors(nodeToDelete);
             } else {
-                removeNodeWithOneSuccessors(nodeToDelete);
+                removeNodeWithOneSuccessor(nodeToDelete);
             }
         }
     }
@@ -222,10 +222,32 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
 }
 
 void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
+    node * symSuccessor = findSymSucc(nodeToDelete);
+
+    symSuccessor->predecessor->leftSuccessor = symSuccessor->rightSuccessor;
+    symSuccessor->rightSuccessor->predecessor = symSuccessor->predecessor;
+
+    symSuccessor->rightSuccessor = nodeToDelete->rightSuccessor;
+    nodeToDelete->rightSuccessor->predecessor = symSuccessor;
+
+    symSuccessor->leftSuccessor = nodeToDelete->leftSuccessor;
+    nodeToDelete->leftSuccessor->predecessor = symSuccessor;
+
+    if(nodeToDelete != root){
+        symSuccessor->predecessor = nodeToDelete->predecessor;
+        if(nodeToDelete == nodeToDelete->predecessor->leftSuccessor){
+            nodeToDelete->predecessor->leftSuccessor = symSuccessor;
+        }else if(nodeToDelete == nodeToDelete->predecessor->rightSuccessor){
+            nodeToDelete->predecessor->rightSuccessor = symSuccessor;
+        }
+    } else {
+        symSuccessor->predecessor = nullptr;
+        root = symSuccessor;
+    }
 
 }
 
-void AvlTree::removeNodeWithOneSuccessors(AvlTree::node *nodeToDelete) {
+void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
     node* predecessor = nodeToDelete->predecessor;
     node* successor = nullptr;
     if(nodeToDelete->leftSuccessor != nullptr){
@@ -244,6 +266,7 @@ void AvlTree::removeNodeWithOneSuccessors(AvlTree::node *nodeToDelete) {
             predecessor->rightSuccessor = successor;
         }
     }
+    delete(nodeToDelete);
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {

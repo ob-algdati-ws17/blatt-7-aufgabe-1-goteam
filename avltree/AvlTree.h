@@ -4,7 +4,7 @@
 class AvlTree{
 private:
     struct node{
-        int key;
+        const int key;
         int balanceFactor;
         node *predecessor;
         node *leftSuccessor;
@@ -36,7 +36,7 @@ public:
     void remove (const int key);
     void removeNodeWithoutSuccessors(node *);
     void removeNodeWithTwoSuccessors(node *);
-    void removeNodeWithOneSuccessors(node *);
+    void removeNodeWithOneSuccessor(node *);
     friend node *findSymSucc(node *);
     friend int height(node *);
 };

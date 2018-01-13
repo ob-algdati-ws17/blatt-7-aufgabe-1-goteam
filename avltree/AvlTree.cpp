@@ -179,6 +179,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
         if (nodeToDelete == p->leftSuccessor) {
             auto q =p->rightSuccessor;
             delete nodeToDelete;
+            p->leftSuccessor = nullptr;
             auto qHeight = height(q);
             switch (qHeight) {
                 case 0:
@@ -189,12 +190,15 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     p->balanceFactor = 1;
                     break;
                 case 2:
+                    node* r;
                     if (p->balanceFactor == 1 && q->balanceFactor == 1) {
+                        r = q;
                         rotateLeft(q);
                     } else if (p->balanceFactor == 1 && q->balanceFactor == -1) {
+                        r = q->leftSuccessor;
                         doublerotateRightLeft(q);
                     }
-                    upOut(p);
+                    upOut(r);
                     break;
                 default:
                     break;
@@ -204,6 +208,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
             auto q =p->leftSuccessor;
             delete nodeToDelete;
             auto qHeight = height(q);
+            p->rightSuccessor = nullptr;
             switch (qHeight) {
                 case 0:
                     p->balanceFactor = 0;
@@ -213,12 +218,15 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     p->balanceFactor = -1;
                     break;
                 case 2:
+                    node* r;
                     if (p->balanceFactor == -1 && q->balanceFactor == -1) {
+                        r = q;
                         rotateRight(q);
                     } else if (p->balanceFactor == -1 && q->balanceFactor == +1){
+                        r = q->leftSuccessor;
                         doublerotateLeftRight(q);
                     }
-                    upOut(p);
+                    upOut(r);
                     break;
                 default:
                     break;
@@ -282,9 +290,10 @@ void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {
+    if (currentNode == nullptr) return;
     auto p = currentNode;
     auto father = p->predecessor;
-    if (p->balanceFactor == 0) {
+    if (p->balanceFactor == 0 && father != nullptr) {
         if (father->leftSuccessor == p) {
             if (father->balanceFactor == -1) {
                 father->balanceFactor = 0;
@@ -419,5 +428,5 @@ int height(AvlTree::node *node) {
     if (node != nullptr) {
         return 1 + std::max(height(node->leftSuccessor),height(node->rightSuccessor));
     }
-    return -1;
+    return 0;
 }

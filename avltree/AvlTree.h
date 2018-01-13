@@ -1,6 +1,14 @@
 #ifndef AVLTREE_LIBRARY_H
 #define AVLTREE_LIBRARY_H
 
+/**
+ * @file AvlTree.h
+ * @class AvlTree.cpp
+ * @authors Korbinian Karl, Mario Walk
+ * @copyright Korbinian Karl, Mario Walk
+ * @date 13.01.2018
+ * */
+
 class AvlTree{
 private:
     struct node{
@@ -16,6 +24,7 @@ private:
 
     };
     node *root = nullptr;
+
     void add (const int key, AvlTree::node *currentNode);
     node *search (const int key, node *currentNode);
 
@@ -29,14 +38,28 @@ private:
     void doublerotateLeftRight(node *currentNode);
     void doublerotateRightLeft(node *currentNode);
 
-public:
-    ~AvlTree();
-    void add (const int key);
-    node *search (const int key);
-    void remove (const int key);
     void removeNodeWithoutSuccessors(node *);
     void removeNodeWithTwoSuccessors(node *);
     void removeNodeWithOneSuccessor(node *);
+
+public:
+    ~AvlTree();
+
+    /**
+    * @param key
+    */
+    void add (const int key);
+
+    /**
+    * @param key
+    * @return node
+    */
+    node *search (const int key);
+
+    /**
+    * @param key
+    */
+    void remove (const int key);
     friend node *findSymSucc(node *);
     friend int height(node *);
 };

@@ -88,7 +88,7 @@ void AvlTree::startUpIn(AvlTree::node *currentNode) {
             currentNode->balanceFactor = 1;
         }
         //stop recursion at root
-        if(currentNode->predecessor != nullptr){
+        if (currentNode->predecessor != nullptr) {
             recursiveUpIn(currentNode);
         }
     } else {
@@ -103,26 +103,26 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
         //left side
         if (currentNode == predecessor->leftSuccessor) {
             // check if grew
-            if(currentNode->balanceFactor != 0){
-                switch(predecessor->balanceFactor){
+            if (currentNode->balanceFactor != 0) {
+                switch (predecessor->balanceFactor) {
                     case -1:
-                        if(currentNode->balanceFactor == -1){
+                        if (currentNode->balanceFactor == -1) {
                             rotateRight(currentNode);
                             currentNode->balanceFactor = 0;
                             currentNode->rightSuccessor->balanceFactor = 0;
                         }
-                        if(currentNode->balanceFactor == 1){
+                        if (currentNode->balanceFactor == 1) {
                             doublerotateLeftRight(currentNode);
                             currentNode->balanceFactor = 0;
                             currentNode->predecessor->balanceFactor = 0;
                             currentNode->predecessor->rightSuccessor->balanceFactor = 0;
                         }
                         break;
-                    case  0:
+                    case 0:
                         predecessor->balanceFactor = -1;
                         recursiveUpIn(predecessor);
                         break;
-                    case  1:
+                    case 1:
                         predecessor->balanceFactor = 0;
                         break;
                     default:
@@ -134,22 +134,22 @@ void AvlTree::recursiveUpIn(AvlTree::node *currentNode) {
         //right side
         if (currentNode == predecessor->rightSuccessor) {
             // check if grew
-            if(currentNode->balanceFactor != 0){
-                switch(predecessor->balanceFactor){
+            if (currentNode->balanceFactor != 0) {
+                switch (predecessor->balanceFactor) {
                     case -1:
                         predecessor->balanceFactor = 0;
                         break;
-                    case  0:
+                    case 0:
                         predecessor->balanceFactor = 1;
                         recursiveUpIn(predecessor);
                         break;
-                    case  1:
-                        if(currentNode->balanceFactor == 1){
+                    case 1:
+                        if (currentNode->balanceFactor == 1) {
                             rotateLeft(currentNode);
                             currentNode->balanceFactor = 0;
                             currentNode->leftSuccessor->balanceFactor = 0;
                         }
-                        if(currentNode->balanceFactor == -1){
+                        if (currentNode->balanceFactor == -1) {
                             doublerotateRightLeft(currentNode);
                             currentNode->balanceFactor = 0;
                             currentNode->predecessor->balanceFactor = 0;
@@ -185,7 +185,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
     if (nodeToDelete != root) {
         auto p = nodeToDelete->predecessor;
         if (nodeToDelete == p->leftSuccessor) {
-            auto q =p->rightSuccessor;
+            auto q = p->rightSuccessor;
             delete nodeToDelete;
             p->leftSuccessor = nullptr;
             auto qHeight = height(q);
@@ -198,7 +198,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     p->balanceFactor = 1;
                     break;
                 case 2:
-                    node* r;
+                    node *r;
                     if (p->balanceFactor == 1 && q->balanceFactor == 1) {
                         r = q;
                         rotateLeft(q);
@@ -218,7 +218,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     break;
             }
         } else {
-            auto q =p->leftSuccessor;
+            auto q = p->leftSuccessor;
             delete nodeToDelete;
             auto qHeight = height(q);
             p->rightSuccessor = nullptr;
@@ -231,14 +231,14 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     p->balanceFactor = -1;
                     break;
                 case 2:
-                    node* r;
+                    node *r;
                     if (p->balanceFactor == -1 && q->balanceFactor == -1) {
                         r = q;
                         rotateRight(q);
                         r->balanceFactor = 0;
                         r->leftSuccessor->balanceFactor = 0;
                         r->rightSuccessor->balanceFactor = 0;
-                    } else if (p->balanceFactor == -1 && q->balanceFactor == +1){
+                    } else if (p->balanceFactor == -1 && q->balanceFactor == +1) {
                         r = q->leftSuccessor;
                         doublerotateLeftRight(q);
                         r->balanceFactor = 0;
@@ -255,17 +255,17 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
 }
 
 void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
-    node * symSuccessor = findSymSucc(nodeToDelete);
-    node * symSuccessorPredecessor = symSuccessor->predecessor;
+    node *symSuccessor = findSymSucc(nodeToDelete);
+    node *symSuccessorPredecessor = symSuccessor->predecessor;
 
     //release symSuccessor
-    if(symSuccessor->rightSuccessor != nullptr){
+    if (symSuccessor->rightSuccessor != nullptr) {
         symSuccessor->predecessor->rightSuccessor = symSuccessor->rightSuccessor;
         symSuccessor->rightSuccessor->predecessor = symSuccessor->predecessor;
     }
 
     //put symSuccessor in the place of nodeToDelete
-    if(nodeToDelete->rightSuccessor != symSuccessor){
+    if (nodeToDelete->rightSuccessor != symSuccessor) {
         symSuccessor->rightSuccessor = nodeToDelete->rightSuccessor;
         nodeToDelete->rightSuccessor->predecessor = symSuccessor;
     }
@@ -273,11 +273,11 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
     symSuccessor->leftSuccessor = nodeToDelete->leftSuccessor;
     nodeToDelete->leftSuccessor->predecessor = symSuccessor;
 
-    if(nodeToDelete != root){
+    if (nodeToDelete != root) {
         symSuccessor->predecessor = nodeToDelete->predecessor;
-        if(nodeToDelete == nodeToDelete->predecessor->leftSuccessor){
+        if (nodeToDelete == nodeToDelete->predecessor->leftSuccessor) {
             nodeToDelete->predecessor->leftSuccessor = symSuccessor;
-        }else if(nodeToDelete == nodeToDelete->predecessor->rightSuccessor){
+        } else if (nodeToDelete == nodeToDelete->predecessor->rightSuccessor) {
             nodeToDelete->predecessor->rightSuccessor = symSuccessor;
         }
     } else {
@@ -285,7 +285,7 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
         root = symSuccessor;
     }
 
-    if(symSuccessorPredecessor == nodeToDelete){
+    if (symSuccessorPredecessor == nodeToDelete) {
         upOut(symSuccessor);
     } else {
         upOut(symSuccessorPredecessor);
@@ -298,27 +298,27 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
 }
 
 void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
-    node* successor = nullptr;
-    if(nodeToDelete->leftSuccessor != nullptr){
+    node *successor = nullptr;
+    if (nodeToDelete->leftSuccessor != nullptr) {
         successor = nodeToDelete->leftSuccessor;
 
-    }else if(nodeToDelete->rightSuccessor != nullptr){
+    } else if (nodeToDelete->rightSuccessor != nullptr) {
         successor = nodeToDelete->rightSuccessor;
     }
-    if(nodeToDelete != root){
-        node* predecessor = nodeToDelete->predecessor;
-        if(successor != nullptr){
+    if (nodeToDelete != root) {
+        node *predecessor = nodeToDelete->predecessor;
+        if (successor != nullptr) {
             successor->predecessor = predecessor;
 
-            if(predecessor->leftSuccessor == nodeToDelete){
+            if (predecessor->leftSuccessor == nodeToDelete) {
                 predecessor->leftSuccessor = successor;
-            } else if(predecessor->rightSuccessor == nodeToDelete){
+            } else if (predecessor->rightSuccessor == nodeToDelete) {
                 predecessor->rightSuccessor = successor;
             }
         }
         upOut(predecessor);
     } else {
-        if(successor != nullptr){
+        if (successor != nullptr) {
             root = successor;
             successor->predecessor = nullptr;
         }
@@ -328,6 +328,61 @@ void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
     nodeToDelete->rightSuccessor = nullptr;
     nodeToDelete->predecessor = nullptr;
     delete nodeToDelete;
+}
+
+void AvlTree::startUpOut(AvlTree::node *currentNode) {
+    //currentNode is predecessor of nodeToDelete
+    if (currentNode->predecessor->leftSuccessor == currentNode){
+        switch (currentNode->balanceFactor) {
+            case -1:
+                currentNode->balanceFactor = 0;
+                upOut(currentNode);
+                break;
+            case 0:
+                currentNode->balanceFactor = 1;
+                break;
+            case 1:
+                if(currentNode->rightSuccessor->balanceFactor !=0){
+                    if(currentNode->rightSuccessor->balanceFactor == 1){
+                        rotateLeft(currentNode->rightSuccessor);
+                    } else if(currentNode->rightSuccessor->balanceFactor == -1){
+                        doublerotateRightLeft(currentNode->rightSuccessor);
+                    }
+                    currentNode->predecessor->balanceFactor = 0;
+                    currentNode->predecessor->leftSuccessor->balanceFactor = 0;
+                    currentNode->predecessor->rightSuccessor->balanceFactor = 0;
+                }
+                upOut(currentNode->predecessor);
+                break;
+            default:
+                break;
+        }
+    } else if (currentNode->predecessor->rightSuccessor == currentNode){
+        switch (currentNode->balanceFactor) {
+            case -1:
+                if(currentNode->rightSuccessor->balanceFactor !=0){
+                    if(currentNode->leftSuccessor->balanceFactor == 1){
+                        rotateRight(currentNode->leftSuccessor);
+                    } else if(currentNode->leftSuccessor->balanceFactor == -1){
+                        doublerotateLeftRight(currentNode->leftSuccessor);
+                    }
+                    currentNode->predecessor->balanceFactor = 0;
+                    currentNode->predecessor->leftSuccessor->balanceFactor = 0;
+                    currentNode->predecessor->rightSuccessor->balanceFactor = 0;
+                }
+                upOut(currentNode->predecessor);
+                break;
+            case 0:
+                currentNode->balanceFactor = 1;
+                break;
+            case 1:
+                currentNode->balanceFactor = 0;
+                upOut(currentNode);
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {
@@ -341,7 +396,7 @@ void AvlTree::upOut(AvlTree::node *currentNode) {
                 upOut(father);
             } else if (father->balanceFactor == 0) {
                 father->balanceFactor = 1;
-            } else if(father->balanceFactor == +1) {
+            } else if (father->balanceFactor == +1) {
                 auto q = father->rightSuccessor;
                 if (q->balanceFactor == 0) {
                     rotateLeft(q);
@@ -389,26 +444,26 @@ AvlTree::node *findSymSucc(AvlTree::node *node) {
 }
 
 void AvlTree::rotateRight(AvlTree::node *currentNode) {
-    node* predecessor = currentNode->predecessor;
+    node *predecessor = currentNode->predecessor;
 
-    if(predecessor == root){
+    if (predecessor == root) {
         root = currentNode;
         currentNode->predecessor = nullptr;
     } else {
-        node* prePredecessor = predecessor->predecessor;
+        node *prePredecessor = predecessor->predecessor;
 
-        if(predecessor == prePredecessor->leftSuccessor){
+        if (predecessor == prePredecessor->leftSuccessor) {
             prePredecessor->leftSuccessor = currentNode;
             currentNode->predecessor = prePredecessor;
         }
-        if(predecessor == prePredecessor->rightSuccessor){
+        if (predecessor == prePredecessor->rightSuccessor) {
             prePredecessor->rightSuccessor = currentNode;
             currentNode->predecessor = prePredecessor;
         }
     }
     currentNode->balanceFactor = 0;
 
-    if(currentNode->rightSuccessor != nullptr){
+    if (currentNode->rightSuccessor != nullptr) {
         predecessor->leftSuccessor = currentNode->rightSuccessor;
         currentNode->rightSuccessor->predecessor = predecessor;
     } else {
@@ -422,25 +477,25 @@ void AvlTree::rotateRight(AvlTree::node *currentNode) {
 }
 
 void AvlTree::rotateLeft(AvlTree::node *currentNode) {
-    node* predecessor = currentNode->predecessor;
+    node *predecessor = currentNode->predecessor;
 
-    if(predecessor == root){
+    if (predecessor == root) {
         root = currentNode;
         currentNode->predecessor = nullptr;
     } else {
-        node* prePredecessor = predecessor->predecessor;
+        node *prePredecessor = predecessor->predecessor;
 
-        if(predecessor == prePredecessor->rightSuccessor){
+        if (predecessor == prePredecessor->rightSuccessor) {
             prePredecessor->rightSuccessor = currentNode;
             currentNode->predecessor = prePredecessor;
         }
-        if(predecessor == prePredecessor->leftSuccessor){
+        if (predecessor == prePredecessor->leftSuccessor) {
             prePredecessor->leftSuccessor = currentNode;
             currentNode->predecessor = prePredecessor;
         }
     }
 
-    if(currentNode->leftSuccessor != nullptr){
+    if (currentNode->leftSuccessor != nullptr) {
         predecessor->rightSuccessor = currentNode->leftSuccessor;
         currentNode->leftSuccessor->predecessor = predecessor;
     } else {
@@ -465,7 +520,7 @@ void AvlTree::doublerotateRightLeft(AvlTree::node *currentNode) {
 
 int height(AvlTree::node *node) {
     if (node != nullptr) {
-        return 1 + std::max(height(node->leftSuccessor),height(node->rightSuccessor));
+        return 1 + std::max(height(node->leftSuccessor), height(node->rightSuccessor));
     }
     return 0;
 }

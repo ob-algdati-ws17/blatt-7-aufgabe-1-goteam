@@ -247,6 +247,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
 
 void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
     node * symSuccessor = findSymSucc(nodeToDelete);
+    node * symSuccessorPredecessor = symSuccessor->predecessor;
 
     //release symSuccessor
     if(symSuccessor->rightSuccessor != nullptr){
@@ -274,7 +275,14 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
         symSuccessor->predecessor = nullptr;
         root = symSuccessor;
     }
-    delete(nodeToDelete);
+
+    if(symSuccessorPredecessor == nodeToDelete){
+        delete(nodeToDelete);
+        upOut(symSuccessor);
+    } else {
+        delete(nodeToDelete);
+        upOut(symSuccessorPredecessor);
+    }
 }
 
 void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
@@ -297,6 +305,7 @@ void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
         }
     }
     delete(nodeToDelete);
+    upOut(predecessor);
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {

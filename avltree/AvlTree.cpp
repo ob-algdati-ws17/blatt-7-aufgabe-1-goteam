@@ -217,9 +217,8 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     break;
             }
         }
-    } else {
-        delete root;
     }
+    delete(nodeToDelete);
 }
 
 void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
@@ -305,10 +304,16 @@ void AvlTree::rotateRight(AvlTree::node *currentNode) {
     }
     currentNode->balanceFactor = 0;
 
+    if(currentNode->rightSuccessor != nullptr){
+        predecessor->leftSuccessor = currentNode->rightSuccessor;
+        currentNode->rightSuccessor->predecessor = predecessor;
+    } else {
+        predecessor->leftSuccessor = nullptr;
+    }
+
     currentNode->rightSuccessor = predecessor;
     predecessor->predecessor = currentNode;
 
-    predecessor->leftSuccessor = nullptr;
     predecessor->balanceFactor = 0;
 }
 
@@ -331,6 +336,13 @@ void AvlTree::rotateLeft(AvlTree::node *currentNode) {
         }
     }
     currentNode->balanceFactor = 0;
+
+    if(currentNode->leftSuccessor != nullptr){
+        predecessor->rightSuccessor = currentNode->leftSuccessor;
+        currentNode->leftSuccessor->predecessor = predecessor;
+    } else {
+        predecessor->rightSuccessor = nullptr;
+    }
 
     currentNode->leftSuccessor = predecessor;
     predecessor->predecessor = currentNode;
@@ -355,14 +367,3 @@ int height(AvlTree::node *node) {
     }
     return -1;
 }
-
-
-
-
-
-
-
-
-
-
-

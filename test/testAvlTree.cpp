@@ -179,7 +179,7 @@ TEST(AvlTreeTest, Test_Height) {
     EXPECT_EQ(height(test), 1);
 }
 
-TEST(AvlTreeTest, RemoveNode_OneLeaf) {
+TEST(AvlTreeTest, RemoveNode_OneSuccessor) {
     AvlTree a;
     a.add(3);
     a.add(4);
@@ -192,4 +192,37 @@ TEST(AvlTreeTest, RemoveNode_OneLeaf) {
     EXPECT_EQ(nullptr, a.search(2));
     EXPECT_EQ(a.search(1), a.search(3)->leftSuccessor);
     EXPECT_EQ(a.search(3), a.search(1)->predecessor);
+}
+
+TEST(AvlTreeTest, RemoveNode_TwoSuccessors_Root) {
+    AvlTree a;
+    a.add(2);
+    a.add(1);
+    a.add(3);
+    a.add(4);
+
+    EXPECT_EQ(nullptr, a.search(2)->predecessor);
+
+    a.remove(2);
+    EXPECT_EQ(nullptr, a.search(2));
+    EXPECT_EQ(nullptr, a.search(3)->predecessor);
+    EXPECT_EQ(a.search(1), a.search(3)->leftSuccessor);
+    EXPECT_EQ(a.search(4), a.search(3)->rightSuccessor);
+}
+
+TEST(AvlTreeTest, RemoveNode_TwoSuccessors) {
+    AvlTree a;
+    a.add(3);
+    a.add(2);
+    a.add(5);
+    a.add(1);
+    a.add(4);
+    a.add(6);
+
+    EXPECT_EQ(a.search(3), a.search(5)->predecessor);
+
+    a.remove(5);
+    EXPECT_EQ(nullptr, a.search(5));
+    EXPECT_EQ(a.search(3), a.search(6)->predecessor);
+    EXPECT_EQ(a.search(4), a.search(6)->leftSuccessor);
 }

@@ -194,6 +194,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     } else if (p->balanceFactor == 1 && q->balanceFactor == -1) {
                         doublerotateRightLeft(q);
                     }
+                    upOut(p);
                     break;
                 default:
                     break;
@@ -217,6 +218,7 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     } else if (p->balanceFactor == -1 && q->balanceFactor == +1){
                         doublerotateLeftRight(q);
                     }
+                    upOut(p);
                     break;
                 default:
                     break;

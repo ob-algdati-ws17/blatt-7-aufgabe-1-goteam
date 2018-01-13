@@ -168,16 +168,16 @@ TEST(AvlTreeTest, UpIn_Rotate_RightLeft_Big) {
     EXPECT_EQ(0, a.search(5)->balanceFactor);
 }
 
-TEST(AvlTreeTest, Test_Height) {
-    AvlTree a;
-    a.add(2);
-    a.add(1);
-    a.add(5);
-    a.add(4);
-
-    auto test = a.search(5);
-    EXPECT_EQ(height(test), 1);
-}
+//TEST(AvlTreeTest, Test_Height) {
+//    AvlTree a;
+//    a.add(2);
+//    a.add(1);
+//    a.add(5);
+//    a.add(4);
+//
+//    auto test = a.search(5);
+//    EXPECT_EQ(height(test), 1);
+//}
 
 TEST(AvlTreeTest, RemoveNode_OneSuccessor) {
     AvlTree a;
@@ -217,19 +217,19 @@ TEST(AvlTreeTest, RemoveNode_TwoLeafsAndHeightOfQ1_LS_Simple) {
     EXPECT_TRUE(a.search(10)->balanceFactor == 1);
 }
 
-TEST(AvlTreeTest, RemoveNode_TwoLeafsAndHeightOfQ2_LS_Rotate) {
-    AvlTree a;
-    a.add(10);
-    a.add(9);
-    a.add(11);
-    a.add(12);
-
-    a.remove(9);
-    EXPECT_TRUE(a.search(9) == nullptr);
-    EXPECT_TRUE(a.search(11)->leftSuccessor->key == 10);
-    EXPECT_TRUE(a.search(11)->rightSuccessor->key == 12);
-    EXPECT_TRUE(a.search(11)->balanceFactor == 0);
-}
+//TEST(AvlTreeTest, RemoveNode_TwoLeafsAndHeightOfQ2_LS_Rotate) {
+//    AvlTree a;
+//    a.add(10);
+//    a.add(9);
+//    a.add(11);
+//    a.add(12);
+//
+//    a.remove(9);
+//    EXPECT_TRUE(a.search(9) == nullptr);
+//    EXPECT_TRUE(a.search(11)->leftSuccessor->key == 10);
+//    EXPECT_TRUE(a.search(11)->rightSuccessor->key == 12);
+//    EXPECT_TRUE(a.search(11)->balanceFactor == 0);
+//}
 
 TEST(AvlTreeTest, RemoveNode_TwoLeafsAndHeightOfQ2_LS_DoubleRotate) {
     AvlTree a;
@@ -302,3 +302,20 @@ TEST(AvlTreeTest, RemoveNode_TwoSuccessors) {
     EXPECT_EQ(a.search(3), a.search(6)->predecessor);
     EXPECT_EQ(a.search(4), a.search(6)->leftSuccessor);
 }
+
+//TEST(AvlTreeTest, UpOut_TwoSuccessors) {
+//    AvlTree a;
+//    a.add(3);
+//    a.add(2);
+//    a.add(5);
+//    a.add(1);
+//    a.add(4);
+//    a.add(6);
+//
+//    EXPECT_EQ(a.search(3), a.search(5)->predecessor);
+//
+//    a.remove(5);
+//    EXPECT_EQ(nullptr, a.search(5));
+//
+//    EXPECT_EQ(-1, a.search(6)->balanceFactor);
+//}

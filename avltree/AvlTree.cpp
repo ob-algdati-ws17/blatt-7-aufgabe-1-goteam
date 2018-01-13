@@ -277,10 +277,10 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
     }
 
     if(symSuccessorPredecessor == nodeToDelete){
-        delete(nodeToDelete);
+        delete nodeToDelete;
         upOut(symSuccessor);
     } else {
-        delete(nodeToDelete);
+        delete nodeToDelete;
         upOut(symSuccessorPredecessor);
     }
 }
@@ -302,9 +302,10 @@ void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
             predecessor->leftSuccessor = successor;
         } else if(predecessor->rightSuccessor == nodeToDelete){
             predecessor->rightSuccessor = successor;
+            predecessor->rightSuccessor = successor;
         }
     }
-    delete(nodeToDelete);
+    delete nodeToDelete;
     upOut(predecessor);
 }
 

@@ -288,16 +288,18 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
     }
 
     if(symSuccessorPredecessor == nodeToDelete){
-        delete(nodeToDelete);
         upOut(symSuccessor);
     } else {
-        delete(nodeToDelete);
         upOut(symSuccessorPredecessor);
     }
+
+    nodeToDelete->leftSuccessor = nullptr;
+    nodeToDelete->rightSuccessor = nullptr;
+    nodeToDelete->predecessor = nullptr;
+    delete nodeToDelete;
 }
 
 void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
-    node* predecessor = nodeToDelete->predecessor;
     node* successor = nullptr;
     if(nodeToDelete->leftSuccessor != nullptr){
         successor = nodeToDelete->leftSuccessor;
@@ -305,18 +307,29 @@ void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
     }else if(nodeToDelete->rightSuccessor != nullptr){
         successor = nodeToDelete->rightSuccessor;
     }
+    if(nodeToDelete != root){
+        node* predecessor = nodeToDelete->predecessor;
+        if(successor != nullptr){
+            successor->predecessor = predecessor;
 
-    if(successor != nullptr){
-        successor->predecessor = predecessor;
-
-        if(predecessor->leftSuccessor == nodeToDelete){
-            predecessor->leftSuccessor = successor;
-        } else if(predecessor->rightSuccessor == nodeToDelete){
-            predecessor->rightSuccessor = successor;
+            if(predecessor->leftSuccessor == nodeToDelete){
+                predecessor->leftSuccessor = successor;
+            } else if(predecessor->rightSuccessor == nodeToDelete){
+                predecessor->rightSuccessor = successor;
+            }
+        }
+        upOut(predecessor);
+    } else {
+        if(successor != nullptr){
+            root = successor;
+            successor->predecessor = nullptr;
         }
     }
-    delete(nodeToDelete);
-    upOut(predecessor);
+
+    nodeToDelete->leftSuccessor = nullptr;
+    nodeToDelete->rightSuccessor = nullptr;
+    nodeToDelete->predecessor = nullptr;
+    delete nodeToDelete;
 }
 
 void AvlTree::upOut(AvlTree::node *currentNode) {

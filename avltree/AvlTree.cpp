@@ -400,12 +400,19 @@ void AvlTree::upOut(AvlTree::node *currentNode) {
                 auto q = father->rightSuccessor;
                 if (q->balanceFactor == 0) {
                     rotateLeft(q);
+                    father->balanceFactor = +1;
+                    q->balanceFactor = -1;
                 } else if (q->balanceFactor == +1) {
                     rotateLeft(q);
+                    father->balanceFactor = 0;
+                    q->balanceFactor = 0;
                     upOut(q);
                 } else if (q->balanceFactor == -1) {
                     auto r = q->leftSuccessor;
                     doublerotateRightLeft(q);
+                    father->balanceFactor =0;
+                    r->balanceFactor = 0;
+                    q->balanceFactor = 0;
                     upOut(r);
                 }
             }
@@ -419,12 +426,19 @@ void AvlTree::upOut(AvlTree::node *currentNode) {
                 auto q = father->leftSuccessor;
                 if (q->balanceFactor == 0) {
                     rotateRight(q);
+                    father->balanceFactor = -1;
+                    q->balanceFactor = +1;
                 } else if (q->balanceFactor == -1) {
                     rotateRight(q);
+                    father->balanceFactor = 0;
+                    q->balanceFactor = 0;
                     upOut(q);
                 } else if (q->balanceFactor == +1) {
                     auto r = q->rightSuccessor;
                     doublerotateLeftRight(q);
+                    father->balanceFactor =0;
+                    r->balanceFactor = 0;
+                    q->balanceFactor = 0;
                     upOut(r);
                 }
             }

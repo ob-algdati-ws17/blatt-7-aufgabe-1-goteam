@@ -186,7 +186,6 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
         root = nullptr;
         delete nodeToDelete;
     } else {
-        //TODO: predecessor
         startUpOut(nodeToDelete);
 
         if(nodeToDelete == nodeToDelete->predecessor->leftSuccessor){
@@ -204,14 +203,8 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
 
 void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
     node *symSuccessor = findSymSucc(nodeToDelete);
-    node *symSuccessorPredecessor = symSuccessor->predecessor;
 
-    //TODO: predecessor
-    if (symSuccessorPredecessor == nodeToDelete) {
-        startUpOut(symSuccessor);
-    } else {
-        startUpOut(symSuccessorPredecessor);
-    }
+    startUpOut(symSuccessor);
     symSuccessor->balanceFactor = nodeToDelete->balanceFactor;
 
     //release symSuccessor
@@ -256,7 +249,6 @@ void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
         successor = nodeToDelete->rightSuccessor;
     }
     if (nodeToDelete != root) {
-        //TODO: predecessor
         startUpOut(nodeToDelete);
 
         node *predecessor = nodeToDelete->predecessor;
@@ -284,57 +276,54 @@ void AvlTree::removeNodeWithOneSuccessor(AvlTree::node *nodeToDelete) {
 }
 
 void AvlTree::startUpOut(AvlTree::node *currentNode) {
-    //currentNode is predecessor of nodeToDelete
-    if (currentNode->predecessor->leftSuccessor == currentNode){
-        //TODO:predecessor
-        currentNode = currentNode->predecessor;
-        switch (currentNode->balanceFactor) {
+    //currentNode nodeToDelete
+    node* predecessor = currentNode->predecessor;
+    if (predecessor->leftSuccessor == currentNode){
+        switch (predecessor->balanceFactor) {
             case -1:
-                currentNode->balanceFactor = 0;
-                upOut(currentNode);
+                predecessor->balanceFactor = 0;
+                upOut(predecessor);
                 break;
             case 0:
-                currentNode->balanceFactor = 1;
+                predecessor->balanceFactor = 1;
                 break;
             case 1:
-                if(currentNode->rightSuccessor->balanceFactor !=0){
-                    if(currentNode->rightSuccessor->balanceFactor == 1){
-                        rotateLeft(currentNode->rightSuccessor);
-                    } else if(currentNode->rightSuccessor->balanceFactor == -1){
-                        doublerotateRightLeft(currentNode->rightSuccessor);
+                if(predecessor->rightSuccessor->balanceFactor !=0){
+                    if(predecessor->rightSuccessor->balanceFactor == 1){
+                        rotateLeft(predecessor->rightSuccessor);
+                    } else if(predecessor->rightSuccessor->balanceFactor == -1){
+                        doublerotateRightLeft(predecessor->rightSuccessor);
                     }
-                    currentNode->predecessor->balanceFactor = 0;
-                    currentNode->predecessor->leftSuccessor->balanceFactor = 0;
-                    currentNode->predecessor->rightSuccessor->balanceFactor = 0;
+                    predecessor->predecessor->balanceFactor = 0;
+                    predecessor->predecessor->leftSuccessor->balanceFactor = 0;
+                    predecessor->predecessor->rightSuccessor->balanceFactor = 0;
                 }
-                upOut(currentNode->predecessor);
+                upOut(predecessor->predecessor);
                 break;
             default:
                 break;
         }
-    } else if (currentNode->predecessor->rightSuccessor == currentNode){
-        //TODO: predecessor
-        currentNode = currentNode->predecessor;
-        switch (currentNode->balanceFactor) {
+    } else if (predecessor->rightSuccessor == currentNode){
+        switch (predecessor->balanceFactor) {
             case -1:
-                if(currentNode->leftSuccessor->balanceFactor !=0){
-                    if(currentNode->leftSuccessor->balanceFactor == -1){
-                        rotateRight(currentNode->leftSuccessor);
-                    } else if(currentNode->leftSuccessor->balanceFactor == 1){
-                        doublerotateLeftRight(currentNode->leftSuccessor);
+                if(predecessor->leftSuccessor->balanceFactor !=0){
+                    if(predecessor->leftSuccessor->balanceFactor == -1){
+                        rotateRight(predecessor->leftSuccessor);
+                    } else if(predecessor->leftSuccessor->balanceFactor == 1){
+                        doublerotateLeftRight(predecessor->leftSuccessor);
                     }
-                    currentNode->predecessor->balanceFactor = 0;
-                    currentNode->predecessor->leftSuccessor->balanceFactor = 0;
-                    currentNode->predecessor->rightSuccessor->balanceFactor = 0;
+                    predecessor->predecessor->balanceFactor = 0;
+                    predecessor->predecessor->leftSuccessor->balanceFactor = 0;
+                    predecessor->predecessor->rightSuccessor->balanceFactor = 0;
                 }
-                upOut(currentNode->predecessor);
+                upOut(predecessor->predecessor);
                 break;
             case 0:
-                currentNode->balanceFactor = -1;
+                predecessor->balanceFactor = -1;
                 break;
             case 1:
-                currentNode->balanceFactor = 0;
-                upOut(currentNode);
+                predecessor->balanceFactor = 0;
+                upOut(predecessor);
                 break;
             default:
                 break;

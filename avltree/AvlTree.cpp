@@ -189,9 +189,12 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                     p->balanceFactor = 1;
                     break;
                 case 2:
-
+                    if (p->balanceFactor == 1 && q->balanceFactor == 1) {
+                        rotateLeft(q);
+                    } else if (p->balanceFactor == 1 && q->balanceFactor == -1) {
+                        doublerotateRightLeft(q);
+                    }
                     break;
-
                 default:
                     break;
             }
@@ -208,17 +211,18 @@ void AvlTree::removeNodeWithoutSuccessors(AvlTree::node *nodeToDelete) {
                 case 1:
                     p->balanceFactor = -1;
                     break;
-
                 case 2:
-
+                    if (p->balanceFactor == -1 && q->balanceFactor == -1) {
+                        rotateRight(q);
+                    } else if (p->balanceFactor == -1 && q->balanceFactor == +1){
+                        doublerotateLeftRight(q);
+                    }
                     break;
-
                 default:
                     break;
             }
         }
     }
-    delete(nodeToDelete);
 }
 
 void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
@@ -279,15 +283,17 @@ void AvlTree::upOut(AvlTree::node *currentNode) {
                 upOut(father);
             } else if (father->balanceFactor == 0) {
                 father->balanceFactor = 1;
-                return;
             } else if(father->balanceFactor == +1) {
                 auto q = father->rightSuccessor;
                 if (q->balanceFactor == 0) {
-
+                    rotateLeft(q);
                 } else if (q->balanceFactor == +1) {
-
+                    rotateLeft(q);
+                    upOut(q);
                 } else if (q->balanceFactor == -1) {
-
+                    auto r = q->leftSuccessor;
+                    doublerotateRightLeft(q);
+                    upOut(r);
                 }
             }
         } else if (father->rightSuccessor == p) {

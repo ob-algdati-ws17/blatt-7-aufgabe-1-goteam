@@ -193,3 +193,13 @@ TEST(AvlTreeTest, RemoveNode_OneLeaf) {
     EXPECT_EQ(a.search(1), a.search(3)->leftSuccessor);
     EXPECT_EQ(a.search(3), a.search(1)->predecessor);
 }
+
+TEST(AvlTreeTEst, RemoveNode_TwoLeafsAndQEquals0) {
+    AvlTree a;
+    a.add(10);
+    a.add(9);
+    EXPECT_EQ(a.search(9), a.search(10)->leftSuccessor);
+    a.remove(9);
+    EXPECT_TRUE(a.search(9) == nullptr);
+    EXPECT_TRUE(a.search(10)->leftSuccessor == nullptr && a.search(10)->rightSuccessor == nullptr);
+}

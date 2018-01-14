@@ -4,6 +4,15 @@ language: cpp
 # Compiler
 compiler: gcc
 
+addons:
+  apt:
+    packages:
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
+
 # Build steps
 script:
   - rm -rf build
@@ -12,3 +21,9 @@ script:
   - pwd && cmake ..
   - pwd && make
   - pwd && make test
+
+# Generate and deploy documentation
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - chmod +x generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh

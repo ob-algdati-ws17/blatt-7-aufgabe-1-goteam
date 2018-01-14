@@ -169,17 +169,6 @@ TEST(AvlTreeTest, UpIn_Rotate_RightLeft_Big) {
     EXPECT_EQ(0, a.search(5)->balanceFactor);
 }
 
-TEST(AvlTreeTest, TestSubTreeHeight) {
-    AvlTree a;
-    a.add(2);
-    a.add(1);
-    a.add(5);
-    a.add(4);
-
-    auto test = a.search(2)->rightSuccessor;
-    EXPECT_EQ(height(test), 2);
-}
-
 TEST(AvlTreeTest, RemoveNode_OneSuccessor) {
     AvlTree a;
     a.add(3);
@@ -348,7 +337,7 @@ TEST(AvlTreeTest, StartUpOut_TwoSuccessors) {
 }
 
 
-TEST(AvlTreeTest, RecursiveUpOut_TwoSuccessors) {
+TEST(AvlTreeTest, RecursiveUpOut_SymSucc) {
     AvlTree a;
     a.add(3);
     a.add(2);
@@ -367,4 +356,52 @@ TEST(AvlTreeTest, RecursiveUpOut_TwoSuccessors) {
     EXPECT_EQ(a.search(3)->rightSuccessor, a.search(6));
     EXPECT_EQ(0, a.search(6)->balanceFactor);
     EXPECT_EQ(0, a.search(7)->balanceFactor);
+}
+
+TEST(AvlTreeTest, Big_UpOut) {
+    AvlTree a;
+    a.add(5);
+    a.add(3);
+    a.add(9);
+    a.add(2);
+    a.add(4);
+    a.add(7);
+    a.add(11);
+    a.add(1);
+    a.add(6);
+    a.add(8);
+    a.add(10);
+    a.add(12);
+    a.add(13);
+
+    EXPECT_EQ(1, a.search(5)->balanceFactor);
+
+    EXPECT_EQ(-1, a.search(3)->balanceFactor);
+    EXPECT_EQ(-1, a.search(2)->balanceFactor);
+    EXPECT_EQ(0, a.search(1)->balanceFactor);
+    EXPECT_EQ(0, a.search(4)->balanceFactor);
+
+    EXPECT_EQ(1, a.search(9)->balanceFactor);
+    EXPECT_EQ(1, a.search(11)->balanceFactor);
+    EXPECT_EQ(1, a.search(12)->balanceFactor);
+    EXPECT_EQ(0, a.search(13)->balanceFactor);
+    EXPECT_EQ(0, a.search(7)->balanceFactor);
+    EXPECT_EQ(0, a.search(6)->balanceFactor);
+    EXPECT_EQ(0, a.search(8)->balanceFactor);
+
+    a.remove(1);
+    EXPECT_EQ(nullptr, a.search(9)->predecessor);
+    EXPECT_EQ(0, a.search(9)->balanceFactor);
+    EXPECT_EQ(0, a.search(5)->balanceFactor);
+    EXPECT_EQ(0, a.search(3)->balanceFactor);
+    EXPECT_EQ(0, a.search(2)->balanceFactor);
+    EXPECT_EQ(0, a.search(4)->balanceFactor);
+    EXPECT_EQ(0, a.search(7)->balanceFactor);
+    EXPECT_EQ(0, a.search(6)->balanceFactor);
+    EXPECT_EQ(0, a.search(8)->balanceFactor);
+    EXPECT_EQ(1, a.search(11)->balanceFactor);
+    EXPECT_EQ(0, a.search(10)->balanceFactor);
+    EXPECT_EQ(1, a.search(12)->balanceFactor);
+    EXPECT_EQ(0, a.search(13)->balanceFactor);
+
 }

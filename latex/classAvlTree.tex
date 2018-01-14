@@ -3,11 +3,6 @@
 }
 
 
-The A\-V\-L Tree class.  
-
-
-
-
 {\ttfamily \#include $<$Avl\-Tree.\-h$>$}
 
 \subsection*{Classes}
@@ -34,9 +29,7 @@ node $\ast$ \hyperlink{classAvlTree_aa44539c647f5a99a52391ce61d96d759}{find\-Sym
 
 
 \subsection{Detailed Description}
-The A\-V\-L Tree class. 
-
-This class represents custom sized A\-V\-L Trees. 
+The \hyperlink{classAvlTree}{Avl\-Tree} class represents custom avl balanced trees. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classAvlTree_ada89cb30925d36a56e3aab8768752468}{\index{Avl\-Tree@{Avl\-Tree}!$\sim$\-Avl\-Tree@{$\sim$\-Avl\-Tree}}
@@ -56,9 +49,13 @@ This class represents custom sized A\-V\-L Trees.
 \item[{const int}]{key}
 \end{DoxyParamCaption}
 )}}\label{classAvlTree_a8ef63ed11092c12589dca726ee20132b}
+Adding a node.
+
+This method add the node with the parameter key to the tree. Also it automatically balances the tree again at place and also on the path to the root, if needed.
+
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & -\/ the key to be added to a tree \\
 \hline
 \end{DoxyParams}
 \hypertarget{classAvlTree_a20c8f808bd2b6a6f8b459fa24f09a15c}{\index{Avl\-Tree@{Avl\-Tree}!remove@{remove}}
@@ -68,9 +65,13 @@ This class represents custom sized A\-V\-L Trees.
 \item[{const int}]{key}
 \end{DoxyParamCaption}
 )}}\label{classAvlTree_a20c8f808bd2b6a6f8b459fa24f09a15c}
+Removing a node.
+
+This method removes the node with the key specified as a parameter. Also it automatically balances the tree again at place and also on the path to the root, if needed.
+
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & -\/ the key to be removed from a tree \\
 \hline
 \end{DoxyParams}
 \hypertarget{classAvlTree_ab2ca84658574e6a199273eb835c93bf8}{\index{Avl\-Tree@{Avl\-Tree}!search@{search}}
@@ -80,13 +81,17 @@ This class represents custom sized A\-V\-L Trees.
 \item[{const int}]{key}
 \end{DoxyParamCaption}
 )}}\label{classAvlTree_ab2ca84658574e6a199273eb835c93bf8}
+Searching for a node.
+
+This method searches for the node with the key specified as a parameter. Returns the node if it was found otherwise a nullptr.
+
 
 \begin{DoxyParams}{Parameters}
-{\em key} & \\
+{\em key} & -\/ the value to be searched for \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-node 
+node -\/ the node if it exsists in the tree, otherwise nullptr 
 \end{DoxyReturn}
 
 
@@ -98,13 +103,17 @@ node
 \item[{Avl\-Tree\-::node $\ast$}]{node}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [friend]}}}\label{classAvlTree_aa44539c647f5a99a52391ce61d96d759}
+Finding the symmetric successor.
+
+This method finds the symmetric successor of the node given as a parameter.
+
 
 \begin{DoxyParams}{Parameters}
 {\em node} & the root of the tree \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-the symmetric successors 
+the symmetric successor 
 \end{DoxyReturn}
 
 

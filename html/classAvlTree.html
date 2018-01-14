@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>AVL Baum: AvlTree Class Reference</title>
+<title>AVL Tree: AvlTree Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">AVL Baum
+   <div id="projectname">AVL Tree
    </div>
   </td>
  </tr>
@@ -90,9 +90,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>The AVL Tree class.  
- <a href="classAvlTree.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="AvlTree_8h_source.html">AvlTree.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -117,8 +114,7 @@ Friends</h2></td></tr>
 <tr class="separator:aa44539c647f5a99a52391ce61d96d759"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The AVL Tree class. </p>
-<p>This class represents custom sized AVL Trees. </p>
+<div class="textblock"><p>The <a class="el" href="classAvlTree.html">AvlTree</a> class represents custom avl balanced trees. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ada89cb30925d36a56e3aab8768752468"></a>
 <div class="memitem">
@@ -149,9 +145,11 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adding a node.</p>
+<p>This method add the node with the parameter key to the tree. Also it automatically balances the tree again at place and also on the path to the root, if needed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">key</td><td>- the key to be added to a tree </td></tr>
   </table>
   </dd>
 </dl>
@@ -171,9 +169,11 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Removing a node.</p>
+<p>This method removes the node with the key specified as a parameter. Also it automatically balances the tree again at place and also on the path to the root, if needed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">key</td><td>- the key to be removed from a tree </td></tr>
   </table>
   </dd>
 </dl>
@@ -193,13 +193,15 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Searching for a node.</p>
+<p>This method searches for the node with the key specified as a parameter. Returns the node if it was found otherwise a nullptr.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">key</td><td>- the value to be searched for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>node </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>node - the node if it exsists in the tree, otherwise nullptr </dd></dl>
 
 </div>
 </div>
@@ -225,13 +227,15 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Finding the symmetric successor.</p>
+<p>This method finds the symmetric successor of the node given as a parameter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">node</td><td>the root of the tree </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the symmetric successors </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the symmetric successor </dd></dl>
 
 </div>
 </div>

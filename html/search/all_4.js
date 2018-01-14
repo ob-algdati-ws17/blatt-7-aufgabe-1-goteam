@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['my_20personal_20index_20page',['My Personal Index Page',['../index.html',1,'']]]
+  ['remove',['remove',['../classAvlTree.html#a20c8f808bd2b6a6f8b459fa24f09a15c',1,'AvlTree']]]
 ];

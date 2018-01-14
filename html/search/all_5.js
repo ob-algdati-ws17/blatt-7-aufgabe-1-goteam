@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['remove',['remove',['../classAvlTree.html#a20c8f808bd2b6a6f8b459fa24f09a15c',1,'AvlTree']]]
+  ['search',['search',['../classAvlTree.html#ab2ca84658574e6a199273eb835c93bf8',1,'AvlTree']]]
 ];

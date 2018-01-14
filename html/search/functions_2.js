@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height',['height',['../AvlTree_8cpp.html#aca991e25319b766446433fc35cbc5053',1,'AvlTree.cpp']]]
+  ['remove',['remove',['../classAvlTree.html#a20c8f808bd2b6a6f8b459fa24f09a15c',1,'AvlTree']]]
 ];

@@ -432,7 +432,6 @@ void AvlTree::rotateRight(AvlTree::node *currentNode) {
             currentNode->predecessor = prePredecessor;
         }
     }
-    currentNode->balanceFactor = 0;
 
     if (currentNode->rightSuccessor != nullptr) {
         predecessor->leftSuccessor = currentNode->rightSuccessor;
@@ -444,7 +443,6 @@ void AvlTree::rotateRight(AvlTree::node *currentNode) {
     currentNode->rightSuccessor = predecessor;
     predecessor->predecessor = currentNode;
 
-    predecessor->balanceFactor = 0;
 }
 
 void AvlTree::rotateLeft(AvlTree::node *currentNode) {
@@ -476,7 +474,6 @@ void AvlTree::rotateLeft(AvlTree::node *currentNode) {
     currentNode->leftSuccessor = predecessor;
     predecessor->predecessor = currentNode;
 
-    predecessor->rightSuccessor = nullptr;
 }
 
 void AvlTree::doublerotateLeftRight(AvlTree::node *currentNode) {

@@ -70,7 +70,13 @@ private:
 
     void removeNodeWithOneSuccessor(node *);
 
+    /**
+     * Test
+     */
 public:
+    /**
+     * Default deconstructor for avl trees.
+     */
     ~AvlTree();
 
     /**

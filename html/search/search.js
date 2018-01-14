@@ -7,18 +7,22 @@
 
 var indexSectionsWithContent =
 {
-  0: "bmr",
-  1: "mr",
-  2: "m",
-  3: "b"
+  0: "acfhmrs~",
+  1: "ac",
+  2: "a",
+  3: "afhrs~",
+  4: "fh",
+  5: "m"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "pages"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "related",
+  5: "pages"
 };
 
 function convertToId(search)

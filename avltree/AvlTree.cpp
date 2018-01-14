@@ -489,9 +489,3 @@ void AvlTree::doublerotateRightLeft(AvlTree::node *currentNode) {
     rotateLeft(currentNode->predecessor);
 }
 
-int height(AvlTree::node *node) {
-    if (node != nullptr) {
-        return 1 + std::max(height(node->leftSuccessor), height(node->rightSuccessor));
-    }
-    return 0;
-}

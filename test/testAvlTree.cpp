@@ -169,17 +169,6 @@ TEST(AvlTreeTest, UpIn_Rotate_RightLeft_Big) {
     EXPECT_EQ(0, a.search(5)->balanceFactor);
 }
 
-TEST(AvlTreeTest, TestSubTreeHeight) {
-    AvlTree a;
-    a.add(2);
-    a.add(1);
-    a.add(5);
-    a.add(4);
-
-    auto test = a.search(2)->rightSuccessor;
-    EXPECT_EQ(height(test), 2);
-}
-
 TEST(AvlTreeTest, RemoveNode_OneSuccessor) {
     AvlTree a;
     a.add(3);

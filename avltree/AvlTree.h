@@ -22,9 +22,9 @@
  * @date 13.01.2018
  * */
 
-//!  A test class. 
+//!  The AVL Tree class.
 /*!
-  A more elaborate class description.
+  This class represents custom sized AVL Trees.
 */
 class AvlTree{
 private:
@@ -78,8 +78,13 @@ public:
     * @param key
     */
     void remove (const int key);
-    friend node *findSymSucc(node *);
-    friend int height(node *);
+
+    /**
+     *
+     * @param node the root of the tree
+     * @return the symmetric successors
+     */
+    friend node *findSymSucc(node *node);
 };
 
 #endif

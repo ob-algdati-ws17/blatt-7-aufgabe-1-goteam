@@ -208,13 +208,24 @@ void AvlTree::removeNodeWithTwoSuccessors(AvlTree::node *nodeToDelete) {
     symSuccessor->balanceFactor = nodeToDelete->balanceFactor;
 
     //release symSuccessor
-    if (symSuccessor->rightSuccessor != nullptr) {
-        symSuccessor->predecessor->rightSuccessor = symSuccessor->rightSuccessor;
-        symSuccessor->rightSuccessor->predecessor = symSuccessor->predecessor;
+    if (symSuccessor == nodeToDelete->rightSuccessor){
+        if (symSuccessor->rightSuccessor != nullptr) {
+            symSuccessor->predecessor->rightSuccessor = symSuccessor->rightSuccessor;
+            symSuccessor->rightSuccessor->predecessor = symSuccessor->predecessor;
+        } else {
+            symSuccessor->predecessor->rightSuccessor = nullptr;
+        }
+    }else{
+        if (symSuccessor->rightSuccessor != nullptr) {
+            symSuccessor->predecessor->leftSuccessor = symSuccessor->rightSuccessor;
+            symSuccessor->rightSuccessor->predecessor = symSuccessor->predecessor;
+        } else {
+            symSuccessor->predecessor->leftSuccessor = nullptr;
+        }
     }
 
     //put symSuccessor in the place of nodeToDelete
-    if (nodeToDelete->rightSuccessor != symSuccessor) {
+    if (nodeToDelete->rightSuccessor != symSuccessor && nodeToDelete->rightSuccessor != nullptr) {
         symSuccessor->rightSuccessor = nodeToDelete->rightSuccessor;
         nodeToDelete->rightSuccessor->predecessor = symSuccessor;
     }

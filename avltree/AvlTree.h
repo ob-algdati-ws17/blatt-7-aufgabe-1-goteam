@@ -9,6 +9,10 @@
  * @date 13.01.2018
  * */
 
+//!  A test class. 
+/*!
+  A more elaborate class description.
+*/
 class AvlTree{
 private:
     struct node{
